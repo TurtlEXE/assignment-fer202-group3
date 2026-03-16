@@ -1,0 +1,550 @@
+{
+  "_meta": {
+    "description": "PicklePro seed data v2 – camelCase fields, priceRules by complexId+courtType, complexAmenities added",
+    "generatedAt": "2026-03-14T05:35:46.782Z",
+    "counts": {
+      "users": 3,
+      "complexes": 1,
+      "registrationForms": 1,
+      "courts": 3,
+      "priceRules": 8,
+      "bookings": 3,
+      "bookingItems": 5,
+      "payments": 3,
+      "reviews": 1,
+      "notifications": 4,
+      "complexImages": 3,
+      "courtSchedules": 5,
+      "complexAmenities": 6
+    }
+  },
+  "users": [
+    {
+      "id": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "email": "admin@picklepro.vn",
+      "passwordHash": "$2b$10$hashed_admin_password",
+      "fullName": "Nguyễn Văn Admin",
+      "phone": "0901000001",
+      "avatarUrl": null,
+      "role": "admin",
+      "status": "active",
+      "emailVerifiedAt": "2024-01-01T08:00:00Z",
+      "createdAt": "2024-01-01T08:00:00Z",
+      "updatedAt": "2024-01-01T08:00:00Z"
+    },
+    {
+      "id": "acaba429-38db-4efc-8cf7-f81609b09f36",
+      "email": "owner@picklepro.vn",
+      "passwordHash": "$2b$10$hashed_owner_password",
+      "fullName": "Trần Thị Lan",
+      "phone": "0902000002",
+      "avatarUrl": "https://cdn.picklepro.vn/avatars/owner_lan.jpg",
+      "role": "owner",
+      "status": "active",
+      "emailVerifiedAt": "2024-02-10T09:00:00Z",
+      "createdAt": "2024-02-10T09:00:00Z",
+      "updatedAt": "2024-02-10T09:00:00Z"
+    },
+    {
+      "id": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "email": "customer@gmail.com",
+      "passwordHash": "$2b$10$hashed_customer_password",
+      "fullName": "Lê Minh Khoa",
+      "phone": "0903000003",
+      "avatarUrl": "https://cdn.picklepro.vn/avatars/customer_khoa.jpg",
+      "role": "customer",
+      "status": "active",
+      "emailVerifiedAt": "2024-03-05T10:00:00Z",
+      "createdAt": "2024-03-05T10:00:00Z",
+      "updatedAt": "2024-03-05T10:00:00Z"
+    }
+  ],
+  "complexes": [
+    {
+      "id": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "ownerId": "acaba429-38db-4efc-8cf7-f81609b09f36",
+      "name": "Khu Pickleball Lan Anh",
+      "slug": "khu-pickleball-lan-anh",
+      "description": "Khu pickleball hiện đại tại quận 7, TP.HCM với 3 sân tiêu chuẩn quốc tế. Hệ thống đèn chiếu sáng cao cấp, mặt sân cushion êm ái, phù hợp cho cả người mới lẫn vận động viên chuyên nghiệp.",
+      "address": "123 Nguyễn Lương Bằng, Phường Tân Phú, Quận 7, TP.HCM",
+      "provinceCode": "79",
+      "districtCode": "769",
+      "lat": 10.72828,
+      "lng": 106.72139,
+      "phone": "0281234567",
+      "openTime": "06:00:00",
+      "closeTime": "22:00:00",
+      "status": "active",
+      "discountRate": 5,
+      "approvedBy": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "approvedAt": "2024-02-20T14:00:00Z",
+      "createdAt": "2024-02-12T10:00:00Z"
+    }
+  ],
+  "registrationForms": [
+    {
+      "id": "02f86a88-b5ed-4e3c-9a41-72ff9da30a25",
+      "ownerId": "acaba429-38db-4efc-8cf7-f81609b09f36",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "businessLicenseUrl": "https://cdn.picklepro.vn/docs/giay_phep_kinh_doanh_lan_anh.pdf",
+      "idCardFrontUrl": "https://cdn.picklepro.vn/docs/cccd_mat_truoc_tran_thi_lan.jpg",
+      "idCardBackUrl": "https://cdn.picklepro.vn/docs/cccd_mat_sau_tran_thi_lan.jpg",
+      "bankAccountName": "TRAN THI LAN",
+      "bankAccountNo": "0021000123456",
+      "bankName": "Vietcombank",
+      "status": "approved",
+      "reviewerNote": "Hồ sơ đầy đủ, hợp lệ. Đã xác minh giấy phép kinh doanh.",
+      "submittedAt": "2024-02-12T11:00:00Z",
+      "reviewedAt": "2024-02-20T14:00:00Z"
+    }
+  ],
+  "courts": [
+    {
+      "id": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Sân A1",
+      "courtType": "indoor",
+      "surfaceType": "cushion",
+      "status": "active",
+      "description": "Sân trong nhà, mặt cushion cao cấp, điều hòa trung tâm, phù hợp thi đấu.",
+      "createdAt": "2024-02-21T08:00:00Z"
+    },
+    {
+      "id": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Sân A2",
+      "courtType": "indoor",
+      "surfaceType": "cushion",
+      "status": "active",
+      "description": "Sân trong nhà, mặt cushion, hệ thống đèn LED chiếu sáng đều.",
+      "createdAt": "2024-02-21T08:00:00Z"
+    },
+    {
+      "id": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Sân B1",
+      "courtType": "covered",
+      "surfaceType": "hardcourt",
+      "status": "active",
+      "description": "Sân có mái che, mặt hardcourt, thoáng mát, giá ưu đãi hơn sân trong nhà.",
+      "createdAt": "2024-02-21T08:00:00Z"
+    }
+  ],
+  "priceRules": [
+    {
+      "id": "51811880-7f09-4070-bdfb-ec8d24e5d58d",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "indoor",
+      "dayType": "weekday",
+      "startTime": "06:00:00",
+      "endTime": "17:00:00",
+      "pricePerHour": 120000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    },
+    {
+      "id": "27009238-bbcd-4a4d-b36d-a233b7683d4f",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "indoor",
+      "dayType": "weekday",
+      "startTime": "17:00:00",
+      "endTime": "22:00:00",
+      "pricePerHour": 180000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    },
+    {
+      "id": "7a37cd5b-ad90-4999-9319-0f46eb317803",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "indoor",
+      "dayType": "weekend",
+      "startTime": "06:00:00",
+      "endTime": "22:00:00",
+      "pricePerHour": 200000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    },
+    {
+      "id": "8c52b6e9-4fec-449e-9987-59229cf3b5b5",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "indoor",
+      "dayType": "holiday",
+      "startTime": "06:00:00",
+      "endTime": "22:00:00",
+      "pricePerHour": 220000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    },
+    {
+      "id": "9e3ee5a2-6b70-47e9-a1cf-edb81adee8c5",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "covered",
+      "dayType": "weekday",
+      "startTime": "06:00:00",
+      "endTime": "17:00:00",
+      "pricePerHour": 80000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    },
+    {
+      "id": "cf59083f-43bd-4d9d-8ab9-8a209904e47c",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "covered",
+      "dayType": "weekday",
+      "startTime": "17:00:00",
+      "endTime": "22:00:00",
+      "pricePerHour": 120000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    },
+    {
+      "id": "a518a3a3-c31a-4bad-984b-3870551b4c0b",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "covered",
+      "dayType": "weekend",
+      "startTime": "06:00:00",
+      "endTime": "22:00:00",
+      "pricePerHour": 150000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    },
+    {
+      "id": "d388d159-5336-4d31-b885-65066ce9a261",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "covered",
+      "dayType": "holiday",
+      "startTime": "06:00:00",
+      "endTime": "22:00:00",
+      "pricePerHour": 170000,
+      "effectiveFrom": "2024-02-21",
+      "effectiveTo": null
+    }
+  ],
+  "bookings": [
+    {
+      "id": "8a451b67-517f-409e-b4be-30ba3e6bf0f7",
+      "bookingCode": "PKL-20240315-0001",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 720000,
+      "discountAmount": 36000,
+      "finalAmount": 684000,
+      "note": "Nhóm 4 người, nhờ chuẩn bị thêm bóng dự phòng.",
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2024-03-14T20:00:00Z"
+    },
+    {
+      "id": "22af9f18-daab-48b9-bf58-d1c04126cbf0",
+      "bookingCode": "PKL-20240320-0002",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "paid",
+      "totalAmount": 180000,
+      "discountAmount": 9000,
+      "finalAmount": 171000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2024-03-18T10:00:00Z"
+    },
+    {
+      "id": "85852135-b395-4bee-83e7-4a2f2aa5a42d",
+      "bookingCode": "PKL-20240310-0003",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "cancelled",
+      "totalAmount": 360000,
+      "discountAmount": 18000,
+      "finalAmount": 342000,
+      "note": null,
+      "cancelledReason": "Bận việc đột xuất, không thể đến chơi.",
+      "cancelledAt": "2024-03-09T18:00:00Z",
+      "createdAt": "2024-03-08T09:00:00Z"
+    }
+  ],
+  "bookingItems": [
+    {
+      "id": "7fbea99b-3343-4795-be5b-92e824e5fe7f",
+      "bookingId": "8a451b67-517f-409e-b4be-30ba3e6bf0f7",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2024-03-15",
+      "startTime": "19:00:00",
+      "endTime": "21:00:00",
+      "pricePerHour": 180000,
+      "durationMinutes": 120,
+      "subtotal": 360000
+    },
+    {
+      "id": "47500112-609c-4a99-b788-0917080495a7",
+      "bookingId": "8a451b67-517f-409e-b4be-30ba3e6bf0f7",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2024-03-15",
+      "startTime": "19:00:00",
+      "endTime": "21:00:00",
+      "pricePerHour": 180000,
+      "durationMinutes": 120,
+      "subtotal": 360000
+    },
+    {
+      "id": "a4e82c2e-f990-466b-96d6-224a55708844",
+      "bookingId": "22af9f18-daab-48b9-bf58-d1c04126cbf0",
+      "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "date": "2024-03-22",
+      "startTime": "08:00:00",
+      "endTime": "09:30:00",
+      "pricePerHour": 120000,
+      "durationMinutes": 90,
+      "subtotal": 180000
+    },
+    {
+      "id": "82fda4da-9cc2-42f7-91bf-b98cdf1bafd8",
+      "bookingId": "85852135-b395-4bee-83e7-4a2f2aa5a42d",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2024-03-10",
+      "startTime": "07:00:00",
+      "endTime": "09:00:00",
+      "pricePerHour": 120000,
+      "durationMinutes": 120,
+      "subtotal": 240000
+    },
+    {
+      "id": "bb84f047-d0da-4c81-8422-ee0cb1d21cbd",
+      "bookingId": "85852135-b395-4bee-83e7-4a2f2aa5a42d",
+      "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "date": "2024-03-10",
+      "startTime": "07:00:00",
+      "endTime": "08:00:00",
+      "pricePerHour": 120000,
+      "durationMinutes": 60,
+      "subtotal": 120000
+    }
+  ],
+  "payments": [
+    {
+      "id": "9da3efba-e156-4ec4-b273-75a02b2087cc",
+      "bookingId": "8a451b67-517f-409e-b4be-30ba3e6bf0f7",
+      "method": "qr_momo",
+      "amount": 684000,
+      "status": "success",
+      "transactionRef": "MOMO20240314200512ABC",
+      "gatewayResponse": {
+        "resultCode": 0,
+        "message": "Thành công",
+        "orderId": "PKL-20240315-0001",
+        "transId": 3012345678,
+        "payType": "qr",
+        "responseTime": 1710446712000
+      },
+      "paidAt": "2024-03-14T20:05:12Z",
+      "refundedAt": null,
+      "createdAt": "2024-03-14T20:00:00Z"
+    },
+    {
+      "id": "fe921298-43c1-4b99-8201-a98228ebcba0",
+      "bookingId": "22af9f18-daab-48b9-bf58-d1c04126cbf0",
+      "method": "qr_vnpay",
+      "amount": 171000,
+      "status": "success",
+      "transactionRef": "VNPAY20240318101234XYZ",
+      "gatewayResponse": {
+        "vnp_ResponseCode": "00",
+        "vnp_Message": "Giao dịch thành công",
+        "vnp_TxnRef": "PKL-20240320-0002",
+        "vnp_TransactionNo": "14012345",
+        "vnp_BankCode": "VCB",
+        "vnp_PayDate": "20240318101234"
+      },
+      "paidAt": "2024-03-18T10:12:34Z",
+      "refundedAt": null,
+      "createdAt": "2024-03-18T10:00:00Z"
+    },
+    {
+      "id": "7436fe73-4d46-4479-8b0b-5f2093c6d0a2",
+      "bookingId": "85852135-b395-4bee-83e7-4a2f2aa5a42d",
+      "method": "qr_momo",
+      "amount": 342000,
+      "status": "refunded",
+      "transactionRef": "MOMO20240308090823DEF",
+      "gatewayResponse": {
+        "resultCode": 0,
+        "message": "Thành công",
+        "orderId": "PKL-20240310-0003",
+        "transId": 3098765432,
+        "payType": "qr",
+        "responseTime": 1709888903000
+      },
+      "paidAt": "2024-03-08T09:08:23Z",
+      "refundedAt": "2024-03-09T20:00:00Z",
+      "createdAt": "2024-03-08T09:00:00Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "0c02f7cd-853a-447f-920a-bd055adc2706",
+      "bookingId": "8a451b67-517f-409e-b4be-30ba3e6bf0f7",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "rating": 5,
+      "comment": "Sân rất đẹp, mặt cushion êm, ánh sáng tốt. Staff thân thiện, giá hợp lý. Sẽ quay lại!",
+      "isVisible": true,
+      "createdAt": "2024-03-15T22:30:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "ac9a3892-3f07-4b8d-9f75-ff0727843e40",
+      "senderId": "acaba429-38db-4efc-8cf7-f81609b09f36",
+      "recipientId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "type": "system",
+      "title": "Yêu cầu đăng ký khu mới",
+      "content": "Chủ khu Trần Thị Lan đã nộp hồ sơ đăng ký khu 'Khu Pickleball Lan Anh'. Vui lòng xem xét và phê duyệt.",
+      "isRead": true,
+      "readAt": "2024-02-15T09:00:00Z",
+      "createdAt": "2024-02-12T11:00:00Z"
+    },
+    {
+      "id": "b64e07ab-ced9-49ff-a82f-3f6e15a4acf2",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "acaba429-38db-4efc-8cf7-f81609b09f36",
+      "type": "system",
+      "title": "Khu của bạn đã được phê duyệt",
+      "content": "Chúc mừng! Khu 'Khu Pickleball Lan Anh' đã được phê duyệt. Bạn có thể bắt đầu thêm sân và nhận đặt lịch từ khách hàng.",
+      "isRead": true,
+      "readAt": "2024-02-20T15:00:00Z",
+      "createdAt": "2024-02-20T14:00:00Z"
+    },
+    {
+      "id": "85e2508c-f768-4cce-82b8-0e66a04fd69a",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Đặt sân thành công – PKL-20240315-0001",
+      "content": "Booking của bạn đã được xác nhận. Sân A1 & A2 tại Khu Pickleball Lan Anh, ngày 15/03/2024, 19:00–21:00. Tổng tiền: 684,000đ.",
+      "isRead": true,
+      "readAt": "2024-03-14T20:10:00Z",
+      "createdAt": "2024-03-14T20:05:12Z"
+    },
+    {
+      "id": "d72488cc-0ea0-40ab-b532-f19b31801ef3",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Nhắc lịch chơi – PKL-20240320-0002",
+      "content": "Bạn có lịch chơi pickleball vào 08:00 ngày 22/03/2024 tại Sân B1, Khu Pickleball Lan Anh. Chúc bạn chơi vui!",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2024-03-22T06:00:00Z"
+    }
+  ],
+  "complexImages": [
+    {
+      "id": "cb799569-11e5-454e-a76c-cc0da3dd1787",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "url": "https://cdn.picklepro.vn/complexes/lan-anh/overview.jpg",
+      "caption": "Toàn cảnh khu Pickleball Lan Anh",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "createdAt": "2024-02-21T08:00:00Z"
+    },
+    {
+      "id": "946a7fca-280d-4441-aeaa-d609ca8c0147",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "url": "https://cdn.picklepro.vn/complexes/lan-anh/san-a1-a2.jpg",
+      "caption": "Sân A1 và A2 trong nhà",
+      "isPrimary": false,
+      "sortOrder": 2,
+      "createdAt": "2024-02-21T08:00:00Z"
+    },
+    {
+      "id": "1e44430c-95ed-451a-abf1-9547620cbb26",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "url": "https://cdn.picklepro.vn/complexes/lan-anh/san-b1.jpg",
+      "caption": "Sân B1 có mái che",
+      "isPrimary": false,
+      "sortOrder": 3,
+      "createdAt": "2024-02-21T08:00:00Z"
+    }
+  ],
+  "courtSchedules": [
+    {
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2024-03-15",
+      "slotStart": "19:00:00",
+      "slotEnd": "21:00:00",
+      "status": "booked",
+      "bookingItemId": "7fbea99b-3343-4795-be5b-92e824e5fe7f"
+    },
+    {
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2024-03-15",
+      "slotStart": "19:00:00",
+      "slotEnd": "21:00:00",
+      "status": "booked",
+      "bookingItemId": "47500112-609c-4a99-b788-0917080495a7"
+    },
+    {
+      "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "date": "2024-03-22",
+      "slotStart": "08:00:00",
+      "slotEnd": "09:30:00",
+      "status": "booked",
+      "bookingItemId": "a4e82c2e-f990-466b-96d6-224a55708844"
+    },
+    {
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2024-03-22",
+      "slotStart": "07:00:00",
+      "slotEnd": "09:00:00",
+      "status": "available",
+      "bookingItemId": null
+    },
+    {
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2024-03-25",
+      "slotStart": "06:00:00",
+      "slotEnd": "12:00:00",
+      "status": "blocked",
+      "bookingItemId": null
+    }
+  ],
+  "complexAmenities": [
+    {
+      "id": "8433c962-cf11-4b68-9ce3-20029bafd798",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Bãi đỗ xe",
+      "description": "Bãi đỗ xe rộng rãi trong khuôn viên, miễn phí cho khách đặt sân, sức chứa 50 xe máy và 10 ô tô."
+    },
+    {
+      "id": "f9652d53-0132-49e0-9824-4e8e034f9022",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Phòng thay đồ",
+      "description": "2 phòng thay đồ nam/nữ riêng biệt, có tủ khóa cá nhân và vòi sen."
+    },
+    {
+      "id": "3be611fd-ef7d-4e1b-8ae7-71f6b5960aa8",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Căng tin & Nước uống",
+      "description": "Căng tin phục vụ đồ uống thể thao, nước lọc, trà đá. Có tủ lạnh tự phục vụ."
+    },
+    {
+      "id": "82f0adf2-a3a4-4e5a-91fa-1d24d399415a",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Cho thuê vợt & bóng",
+      "description": "Cho thuê vợt pickleball chất lượng cao (20,000đ/cây/buổi), bán bóng trong nhà và ngoài trời."
+    },
+    {
+      "id": "94c54621-ac82-46b7-90ee-e3c7b225b911",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "WiFi miễn phí",
+      "description": "Hệ thống WiFi phủ sóng toàn khu, tốc độ 100Mbps."
+    },
+    {
+      "id": "320b146f-691e-4f45-b5b0-f7b03ce5d65c",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Camera an ninh 24/7",
+      "description": "Camera giám sát toàn bộ khu vực sân và khu vực công cộng, đảm bảo an toàn tài sản."
+    }
+  ]
+}
