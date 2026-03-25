@@ -20,6 +20,11 @@ import ComplexSchedule from "./Owner/ComplexSchedule";
 // import AdminDiscount from "./Admin/AdminDiscount";
 // import AdminNotify from "./Admin/AdminNotify";
 
+import ListComplexes from './User/ListComplexes'
+import ListCourt from './User/ListCourt'
+import SlotPicker from './User/SlotPicker'
+import PriceSummary from './User/PriceSummary'
+import BookingConfirm from './User/BookingConfirm'
 const ProtectedRoute = ({ children, allowedRoles }) => {
     const token = localStorage.getItem("pb_token");
     const user = JSON.parse(localStorage.getItem("pb_user") || "{}");
@@ -63,7 +68,13 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
-                    <Route path="/test" element={<OwnerReport/>}/>
+                    <Route path="/test" element={<OwnerReport />} />
+
+                    <Route path="/complexes" element={<ListComplexes />} />
+                    <Route path="/complex/:complexId/courts" element={<ListCourt />} />
+                    <Route path="/complex/:complexId/courts/:courtId/slots" element={<SlotPicker />} />
+                    <Route path="/booking/summary" element={<PriceSummary />} />
+                    <Route path="/booking/confirm" element={<BookingConfirm />} />
                 </Routes>
             </BrowserRouter>
         </GlobalContextProvider>
