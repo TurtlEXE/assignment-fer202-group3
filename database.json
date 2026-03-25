@@ -151,6 +151,16 @@
       "status": "active",
       "description": "",
       "createdAt": "2026-03-24T18:57:24.763Z"
+    },
+    {
+      "id": "a96a6e3a-dd33-4eb3-8fff-f1f9ad8e9098",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Sân 4",
+      "courtType": "indoor",
+      "surfaceType": "cushion",
+      "status": "active",
+      "description": "addasdas",
+      "createdAt": "2026-03-25T15:32:27.450Z"
     }
   ],
   "priceRules": [
@@ -1618,47 +1628,157 @@
       "holdExpiredAt": "2026-03-25T15:24:21.987Z"
     },
     {
-      "id": "bfc99c91-cfe7-46f5-b02e-1303aafd39e5",
+      "id": "04d1a886-5382-44b6-97ed-a82bd3d92e79",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:34:31.092Z"
+    },
+    {
+      "id": "da392b3d-41a3-475f-bf95-82048e760b2f",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:34:31.092Z"
+    },
+    {
+      "id": "55a0b697-ba56-4e8f-abde-5119081364a9",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "a7216459-8f20-449c-b643-e89c13bb3768",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:34:31.092Z"
+    },
+    {
+      "id": "3cd33484-2944-44f4-ba81-ecad8a0ce650",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "d2feab33-da6b-4191-aa3d-f4e982cd8939",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "d669da61-ec10-4e11-966c-4f5ec351c1bd",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "f7e70961-85a9-4313-819c-b531707e1206",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "e55f206f-8d44-4c81-970f-2805974bf22c",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
       "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
       "status": "holding",
       "date": "2026-03-26",
       "bookingItemId": null,
-      "holdExpiredAt": "2026-03-25T17:40:15.495Z"
+      "holdExpiredAt": "2026-03-25T17:17:22.841Z"
     },
     {
-      "id": "d03fe07c-78a9-4231-9b10-e33747f17177",
+      "id": "4ba1674e-cdf4-405d-b6a2-1b56bbeee812",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
       "slotId": "e9c4d663-f72b-4a83-85e1-5008cd3f8b0c",
       "status": "holding",
       "date": "2026-03-26",
       "bookingItemId": null,
-      "holdExpiredAt": "2026-03-25T17:40:15.495Z"
+      "holdExpiredAt": "2026-03-25T17:17:22.841Z"
     },
     {
-      "id": "62cda75e-3236-4cf6-a6a2-56502f869b59",
+      "id": "c4039c0e-644a-4793-8579-5cd2c2a275d0",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
-      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "slotId": "a7216459-8f20-449c-b643-e89c13bb3768",
       "status": "holding",
       "date": "2026-03-26",
       "bookingItemId": null,
-      "holdExpiredAt": "2026-03-25T17:40:22.825Z"
+      "holdExpiredAt": "2026-03-25T17:17:27.532Z"
     },
     {
-      "id": "a2ab9e45-afa3-410e-8192-7fc62ba8eadc",
+      "id": "c5d5b541-4b11-4348-ad3d-ae9cd859ef7a",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
-      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
-      "status": "booked",
-      "date": "2026-03-30",
-      "bookingItemId": "68bdeefc-939c-4f8b-af80-c7f64c659d94"
+      "slotId": "c3857a80-ce96-468b-aeae-4622568572f6",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:27.532Z"
     },
     {
-      "id": "46e22bbd-7f03-4290-a4ec-a9ad3072f8e8",
+      "id": "7e656f35-77ec-4a07-bb6c-9f3ac37957b9",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
-      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
-      "status": "booked",
-      "date": "2026-03-30",
-      "bookingItemId": "68bdeefc-939c-4f8b-af80-c7f64c659d94"
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:55.672Z"
+    },
+    {
+      "id": "7b613cbd-2266-417f-9ccd-11fa15b13042",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:55.672Z"
+    },
+    {
+      "id": "41e5b654-747e-45d1-a7d3-3f4254a2ae76",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0de82b68-6292-4271-98c1-56688392f382",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
+    },
+    {
+      "id": "baf0a03a-6427-492c-be6f-277d7b8b4316",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
+    },
+    {
+      "id": "24188fb9-8bd6-4a79-bece-ac9419d26c6b",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "f8c4c1e1-f366-4151-ad2f-2ffa645a35fd",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
+    },
+    {
+      "id": "5df6b0e1-9f96-4449-b523-278bc77e3353",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "4404e536-2a95-4fac-931e-f2833723c708",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
     }
   ],
   "complexAmenities": [
