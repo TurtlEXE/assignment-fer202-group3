@@ -24,7 +24,12 @@ const Login = () => {
 
 
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", password: "", role: "customer" });
+  const [form, setForm] = useState({
+    email: "",
+    passwordHash: "",
+    role: "customer",
+  });
+  console.log("🚀 ========= form:", form);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
@@ -36,7 +41,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.email || !form.password) {
+    if (!form.email || !form.passwordHash) {
       setError("Vui lòng nhập đầy đủ thông tin.");
       return;
     }
@@ -44,19 +49,26 @@ const Login = () => {
     setLoading(true);
 
     setTimeout(() => {
-      // Tìm tài khoản khớp email + password + role
-      const matched = users.find(
-        (acc) =>
+      // Tìm tài khoản khớp email + passwordHash + role
+      const matched = users.find((acc) => {
+        console.log("========= acc.role",acc.role);
+        console.log("========= form.role", form.role);
+          console.log('🚀 ========= acc.passwordHash === form.passwordHash:', acc.passwordHash === form.passwordHash)
+          console.log('🚀 ========= acc.email === form.email.trim().toLowerCase():', acc.email === form.email.trim().toLowerCase())
+          console.log('🚀 ========= acc.role === form.role:', acc.role === form.role)
+        return (
           acc.email === form.email.trim().toLowerCase() &&
-          acc.passwordHash === form.password &&
+          acc.passwordHash === form.passwordHash &&
           acc.role === form.role
-      );
+        );
+      });
+      console.log("🚀 ========= matched:", matched);
 
       if (!matched) {
         setLoading(false);
         // Phân biệt lỗi rõ ràng hơn
         const emailExists = users.find(
-          (acc) => acc.email === form.email.trim().toLowerCase()
+          (acc) => acc.email === form.email.trim().toLowerCase(),
         );
         if (!emailExists) {
           setError("Email không tồn tại trong hệ thống.");
@@ -76,18 +88,24 @@ const Login = () => {
         avatar: matched.avatar,
       };
 
-      localStorage.setItem("pb_token", `mock_token_${matched.id}_${Date.now()}`);
-      localStorage.setItem("pb_user", JSON.stringify({
-        id: matched.id,
-        fullName: matched.fullName,
-        email: matched.email,
-        phone: matched.phone,
-        role: matched.role,
-        avatarUrl: matched.avatarUrl,
-      }));
+      localStorage.setItem(
+        "pb_token",
+        `mock_token_${matched.id}_${Date.now()}`,
+      );
+      localStorage.setItem(
+        "pb_user",
+        JSON.stringify({
+          id: matched.id,
+          fullName: matched.fullName,
+          email: matched.email,
+          phone: matched.phone,
+          role: matched.role,
+          avatarUrl: matched.avatarUrl,
+        }),
+      );
 
       setLoading(false);
-      
+
       if (matched.role === "admin") {
         navigate("/admin");
       } else if (matched.role === "owner") {
@@ -100,7 +118,9 @@ const Login = () => {
 
   return (
     <div style={S.page}>
-      <div style={S.bgBlob1} /><div style={S.bgBlob2} /><div style={S.bgBlob3} />
+      <div style={S.bgBlob1} />
+      <div style={S.bgBlob2} />
+      <div style={S.bgBlob3} />
       <div style={S.wrap}>
         {/* LEFT PANEL */}
         <div style={S.left}>
@@ -109,15 +129,22 @@ const Login = () => {
             <span style={S.logoTxt}>PickleZone</span>
           </div>
           <h1 style={S.heroH}>
-            Đặt sân<br />
-            <span style={S.heroGreen}>Pickleball</span><br />
+            Đặt sân
+            <br />
+            <span style={S.heroGreen}>Pickleball</span>
+            <br />
             dễ dàng hơn bao giờ hết
           </h1>
           <p style={S.heroP}>
-            Hệ thống quản lý & đặt sân hiện đại — tìm kiếm, đặt lịch và trải nghiệm thể thao đỉnh cao chỉ trong vài cú click.
+            Hệ thống quản lý & đặt sân hiện đại — tìm kiếm, đặt lịch và trải
+            nghiệm thể thao đỉnh cao chỉ trong vài cú click.
           </p>
           <div style={S.statsRow}>
-            {[["120+", "Sân hoạt động"], ["8,500+", "Lượt đặt sân"], ["15", "Khu vực"]].map(([n, l], i) => (
+            {[
+              ["120+", "Sân hoạt động"],
+              ["8,500+", "Lượt đặt sân"],
+              ["15", "Khu vực"],
+            ].map(([n, l], i) => (
               <React.Fragment key={i}>
                 {i > 0 && <div style={S.statDiv} />}
                 <div style={S.statItem}>
@@ -127,7 +154,11 @@ const Login = () => {
               </React.Fragment>
             ))}
           </div>
-          {[["🏅", "Thi đấu chuyên nghiệp"], ["⚡", "Đặt sân tức thì"], ["🎯", "Đánh giá uy tín"]].map(([ic, tx], i) => (
+          {[
+            ["🏅", "Thi đấu chuyên nghiệp"],
+            ["⚡", "Đặt sân tức thì"],
+            ["🎯", "Đánh giá uy tín"],
+          ].map(([ic, tx], i) => (
             <div key={i} style={S.badge}>
               <span style={{ fontSize: 20 }}>{ic}</span>
               <span style={S.badgeTxt}>{tx}</span>
@@ -140,9 +171,16 @@ const Login = () => {
           <h2 style={S.cardH}>Chào mừng trở lại 👋</h2>
           <p style={S.cardSub}>Đăng nhập để tiếp tục</p>
           <div style={S.tabs}>
-            {[{ v: "customer", l: "🙋 Khách hàng" }, { v: "owner", l: "🛠 Owner" }, { v: "admin", l: "🔐 Admin" }].map(t => (
-              <button key={t.v} onClick={() => setForm({ ...form, role: t.v })}
-                style={{ ...S.tab, ...(form.role === t.v ? S.tabActive : {}) }}>
+            {[
+              { v: "customer", l: "🙋 Khách hàng" },
+              { v: "owner", l: "🛠 Owner" },
+              { v: "admin", l: "🔐 Admin" },
+            ].map((t) => (
+              <button
+                key={t.v}
+                onClick={() => setForm({ ...form, role: t.v })}
+                style={{ ...S.tab, ...(form.role === t.v ? S.tabActive : {}) }}
+              >
                 {t.l}
               </button>
             ))}
@@ -153,39 +191,64 @@ const Login = () => {
               <label style={S.lbl}>Email</label>
               <div style={S.iw}>
                 <span style={S.ii}>✉️</span>
-                <input type="email" name="email" value={form.email} onChange={handleChange}
-                  placeholder="your@email.com" style={S.inp} />
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="your@email.com"
+                  style={S.inp}
+                />
               </div>
             </div>
             <div style={S.fg}>
               <label style={S.lbl}>Mật khẩu</label>
               <div style={S.iw}>
                 <span style={S.ii}>🔒</span>
-                <input type={showPass ? "text" : "password"} name="password" value={form.password}
-                  onChange={handleChange} placeholder="••••••••" style={S.inp} />
-                <button type="button" onClick={() => setShowPass(!showPass)} style={S.eye}>
+                <input
+                  type={showPass ? "text" : "password"}
+                  name="passwordHash"
+                  value={form.passwordHash}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                  style={S.inp}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPass(!showPass)}
+                  style={S.eye}
+                >
                   {showPass ? "🙈" : "👁️"}
                 </button>
               </div>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Link to="/forgot-password" style={S.forgot}>Quên mật khẩu?</Link>
+              <Link to="/forgot-password" style={S.forgot}>
+                Quên mật khẩu?
+              </Link>
             </div>
             <button type="submit" style={S.btn} disabled={loading}>
               {loading ? "⟳ Đang đăng nhập..." : "Đăng nhập →"}
             </button>
           </form>
           <div style={S.divRow}>
-            <div style={S.divLine} /><span style={S.divTxt}>hoặc</span><div style={S.divLine} />
+            <div style={S.divLine} />
+            <span style={S.divTxt}>hoặc</span>
+            <div style={S.divLine} />
           </div>
           <button style={S.gBtn}>
-            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="G"
-              style={{ width: 20, height: 20, marginRight: 10 }} />
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="G"
+              style={{ width: 20, height: 20, marginRight: 10 }}
+            />
             Đăng nhập với Google
           </button>
           <p style={S.regP}>
             Chưa có tài khoản?{" "}
-            <Link to="/register" style={S.regL}>Đăng ký ngay</Link>
+            <Link to="/register" style={S.regL}>
+              Đăng ký ngay
+            </Link>
           </p>
         </div>
       </div>

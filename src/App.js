@@ -11,11 +11,11 @@ import Payment from "./Customer/Payment";
 import GlobalContextProvider from "./GlobalContextProvider";
 import OwnerLayout from "./Owner/OwnerLayout";
 import OwnerReport from "./Owner/OwnerReport";
-import AdminLayout from "./Admin/AdminLayout";
-import AdminStats from "./Admin/AdminStats";
-import AdminComplexes from "./Admin/AdminComplexes";
-import AdminDiscount from "./Admin/AdminDiscount";
-import AdminNotify from "./Admin/AdminNotify";
+// import AdminLayout from "./Admin/AdminLayout";
+// import AdminStats from "./Admin/AdminStats";
+// import AdminComplexes from "./Admin/AdminComplexes";
+// import AdminDiscount from "./Admin/AdminDiscount";
+// import AdminNotify from "./Admin/AdminNotify";
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
     const token = localStorage.getItem("pb_token");
@@ -40,13 +40,13 @@ function App() {
                         <Route path="courts" element={<CourtList />} />
                         <Route path="report" element={<Report />} />
                     </Route>
-                    <Route path="/admin" element={<ProtectedRoute allowedRoles={["admin"]}><AdminLayout /></ProtectedRoute>}>
+                    {/* <Route path="/admin" element={<ProtectedRoute allowedRoles={["admin"]}><AdminLayout /></ProtectedRoute>}>
                         <Route index element={<Navigate to="/admin/stats" replace />} />
                         <Route path="stats" element={<AdminStats />} />
                         <Route path="complexes" element={<AdminComplexes />} />
                         <Route path="discount" element={<AdminDiscount />} />
                         <Route path="notify" element={<AdminNotify />} />
-                    </Route>
+                    </Route> */}
                     <Route path="*" element={<Navigate to="/" replace />} />
                     <Route
                         path="/payment"
@@ -56,7 +56,7 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
-                    <Route path="/test" element={<OwnerReport/>}/>
+                    <Route path="/test" element={<OwnerReport />} />
                 </Routes>
             </BrowserRouter>
         </GlobalContextProvider>
