@@ -93,7 +93,7 @@ const Login = () => {
       } else if (matched.role === "owner") {
         navigate("/dashboard");
       } else {
-        navigate("/complexes");
+                navigate("/complexes");
       }
     }, 1000);
   };
