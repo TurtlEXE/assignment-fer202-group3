@@ -70,11 +70,46 @@ function App() {
                     />
                     <Route path="/test" element={<OwnerReport />} />
 
-                    <Route path="/complexes" element={<ListComplexes />} />
-                    <Route path="/complex/:complexId/courts" element={<ListCourt />} />
-                    <Route path="/complex/:complexId/courts/:courtId/slots" element={<SlotPicker />} />
-                    <Route path="/booking/summary" element={<PriceSummary />} />
-                    <Route path="/booking/confirm" element={<BookingConfirm />} />
+                    <Route
+                        path="/complexes"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <ListComplexes />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/complex/:complexId/courts"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <ListCourt />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/complex/:complexId/courts/:courtId/slots"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <SlotPicker />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/booking/summary"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <PriceSummary />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/booking/confirm"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <BookingConfirm />
+                            </ProtectedRoute>
+                        }
+                    />
                 </Routes>
             </BrowserRouter>
         </GlobalContextProvider>

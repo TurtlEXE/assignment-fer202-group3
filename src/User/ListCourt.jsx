@@ -53,7 +53,7 @@ export default function ListCourt() {
                 variant="outline-secondary"
                 size="sm"
                 className="mb-3"
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/complexes')}
             >
                 ← Quay lại
             </Button>
