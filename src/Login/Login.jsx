@@ -52,8 +52,6 @@ const Login = () => {
       // Tìm tài khoản khớp email + password + role
      
       const matched = users.find((acc) => {
-         console.log("🚀53", acc.passwordHash);
-      console.log("🚀54:", form.password);
         return (
           acc.email === form.email.trim().toLowerCase() &&
           acc.passwordHash === form.password &&
