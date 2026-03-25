@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login/Login";
 import Register from "./Login/Register";
+import ForgotPassword from "./Login/ForgotPassword";
 import Home from "./Customer/Home";
 import CourtDetail from "./Customer/CourtDetail";
 import Booking from "./Customer/Booking";
@@ -32,6 +33,7 @@ function App() {
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><Home /></ProtectedRoute>} />
                     <Route path="/court/:id" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><CourtDetail /></ProtectedRoute>} />
                     <Route path="/booking/:id" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><Booking /></ProtectedRoute>} />

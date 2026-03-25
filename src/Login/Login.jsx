@@ -51,19 +51,12 @@ const Login = () => {
     setTimeout(() => {
       // Tìm tài khoản khớp email + passwordHash + role
       const matched = users.find((acc) => {
-        console.log("========= acc.role",acc.role);
-        console.log("========= form.role", form.role);
-          console.log('🚀 ========= acc.passwordHash === form.passwordHash:', acc.passwordHash === form.passwordHash)
-          console.log('🚀 ========= acc.email === form.email.trim().toLowerCase():', acc.email === form.email.trim().toLowerCase())
-          console.log('🚀 ========= acc.role === form.role:', acc.role === form.role)
         return (
           acc.email === form.email.trim().toLowerCase() &&
           acc.passwordHash === form.passwordHash &&
           acc.role === form.role
         );
       });
-      console.log("🚀 ========= matched:", matched);
-
       if (!matched) {
         setLoading(false);
         // Phân biệt lỗi rõ ràng hơn

@@ -57,6 +57,19 @@
       "emailVerifiedAt": "2024-03-05T10:00:00Z",
       "createdAt": "2024-03-05T10:00:00Z",
       "updatedAt": "2024-03-05T10:00:00Z"
+    },
+    {
+      "fullName": "Nguyen Duy Anh",
+      "email": "inuyashapc162@gmail.com",
+      "phone": "0943710156",
+      "passwordHash": "admin1234",
+      "confirmPassword": "admin123",
+      "dob": "2026-03-25",
+      "gender": "male",
+      "agree": true,
+      "role": "customer",
+      "status": "active",
+      "id": "pWtcNC-"
     }
   ],
   "complexes": [
