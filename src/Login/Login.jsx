@@ -26,7 +26,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
-    passwordHash: "",
+    password: "",
     role: "customer",
   });
   console.log("🚀 ========= form:", form);
@@ -41,7 +41,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.email || !form.passwordHash) {
+    if (!form.email || !form.password) {
       setError("Vui lòng nhập đầy đủ thông tin.");
       return;
     }
@@ -49,21 +49,17 @@ const Login = () => {
     setLoading(true);
 
     setTimeout(() => {
-      // Tìm tài khoản khớp email + passwordHash + role
+      // Tìm tài khoản khớp email + password + role
+     
       const matched = users.find((acc) => {
-        console.log("========= acc.role",acc.role);
-        console.log("========= form.role", form.role);
-          console.log('🚀 ========= acc.passwordHash === form.passwordHash:', acc.passwordHash === form.passwordHash)
-          console.log('🚀 ========= acc.email === form.email.trim().toLowerCase():', acc.email === form.email.trim().toLowerCase())
-          console.log('🚀 ========= acc.role === form.role:', acc.role === form.role)
+         console.log("🚀53", acc.passwordHash);
+      console.log("🚀54:", form.password);
         return (
           acc.email === form.email.trim().toLowerCase() &&
-          acc.passwordHash === form.passwordHash &&
+          acc.passwordHash === form.password &&
           acc.role === form.role
         );
       });
-      console.log("🚀 ========= matched:", matched);
-
       if (!matched) {
         setLoading(false);
         // Phân biệt lỗi rõ ràng hơn
@@ -207,8 +203,8 @@ const Login = () => {
                 <span style={S.ii}>🔒</span>
                 <input
                   type={showPass ? "text" : "password"}
-                  name="passwordHash"
-                  value={form.passwordHash}
+                  name="password"
+                  value={form.password}
                   onChange={handleChange}
                   placeholder="••••••••"
                   style={S.inp}
