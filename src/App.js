@@ -6,11 +6,14 @@ import Home from "./Customer/Home";
 import CourtDetail from "./Customer/CourtDetail";
 import Booking from "./Customer/Booking";
 import CourtList from "./Owner/CourtList";
+import ComplexList from "./Owner/ComplexList";
+import PriceConfig from "./Owner/PriceConfig";
 import Report from "./Owner/Report";
 import Payment from "./Customer/Payment";
 import GlobalContextProvider from "./GlobalContextProvider";
 import OwnerLayout from "./Owner/OwnerLayout";
 import OwnerReport from "./Owner/OwnerReport";
+import ComplexSchedule from "./Owner/ComplexSchedule";
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
     const token = localStorage.getItem("pb_token");
@@ -31,8 +34,12 @@ function App() {
                     <Route path="/court/:id" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><CourtDetail /></ProtectedRoute>} />
                     <Route path="/booking/:id" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><Booking /></ProtectedRoute>} />
                     <Route path="/dashboard" element={<ProtectedRoute allowedRoles={["owner", "admin"]}><OwnerLayout /></ProtectedRoute>}>
-                        <Route index element={<Navigate to="/dashboard/courts" replace />} />
-                        <Route path="courts" element={<CourtList />} />
+                        <Route index element={<Navigate to="/dashboard/complexes" replace />} />
+                        <Route path="courts" element={<Navigate to="/dashboard/complexes" replace />} />
+                        <Route path="complexes" element={<ComplexList />} />
+                        <Route path="complex/:complexId/courts" element={<CourtList />} />
+                        <Route path="complex/:complexId/pricing" element={<PriceConfig />} />
+                        <Route path="schedule" element={<ComplexSchedule />} />
                         <Route path="report" element={<Report />} />
                     </Route>
                     <Route path="*" element={<Navigate to="/" replace />} />
