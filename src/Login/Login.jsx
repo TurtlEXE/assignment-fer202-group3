@@ -88,10 +88,12 @@ const Login = () => {
 
       setLoading(false);
       
-      if (matched.role === "owner" || matched.role === "admin") {
+      if (matched.role === "admin") {
+        navigate("/admin");
+      } else if (matched.role === "owner") {
         navigate("/dashboard");
       } else {
-navigate("/");
+        navigate("/");
       }
     }, 1000);
   };
