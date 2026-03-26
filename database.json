@@ -1,21 +1,22 @@
 {
   "_meta": {
-    "description": "PicklePro seed data v2 – camelCase fields, priceRules by complexId+courtType, complexAmenities added",
-    "generatedAt": "2026-03-14T05:35:46.782Z",
+    "description": "PicklePro seed data v3 – slot-based scheduling, bookingItems simplified, slotType on complex & registrationForm",
+    "generatedAt": "2026-03-18T13:45:01.220Z",
     "counts": {
       "users": 3,
       "complexes": 1,
       "registrationForms": 1,
       "courts": 3,
       "priceRules": 8,
-      "bookings": 3,
-      "bookingItems": 5,
-      "payments": 3,
+      "bookings": 5,
+      "bookingItems": 8,
+      "payments": 5,
       "reviews": 1,
       "notifications": 4,
       "complexImages": 3,
-      "courtSchedules": 5,
-      "complexAmenities": 6
+      "courtSchedules": 14,
+      "complexAmenities": 6,
+      "slots": 56
     }
   },
   "users": [
@@ -78,7 +79,8 @@
       "discountRate": 5,
       "approvedBy": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
       "approvedAt": "2024-02-20T14:00:00Z",
-      "createdAt": "2024-02-12T10:00:00Z"
+      "createdAt": "2024-02-12T10:00:00Z",
+      "slotType": "60min"
     }
   ],
   "registrationForms": [
@@ -95,7 +97,8 @@
       "status": "approved",
       "reviewerNote": "Hồ sơ đầy đủ, hợp lệ. Đã xác minh giấy phép kinh doanh.",
       "submittedAt": "2024-02-12T11:00:00Z",
-      "reviewedAt": "2024-02-20T14:00:00Z"
+      "reviewedAt": "2024-02-20T14:00:00Z",
+      "slotType": "60min"
     }
   ],
   "courts": [
@@ -128,6 +131,36 @@
       "status": "active",
       "description": "Sân có mái che, mặt hardcourt, thoáng mát, giá ưu đãi hơn sân trong nhà.",
       "createdAt": "2024-02-21T08:00:00Z"
+    },
+    {
+      "id": "2ec6264b-cf1f-4e9c-b014-62801449742e",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Sân 1",
+      "courtType": "indoor",
+      "surfaceType": "cushion",
+      "status": "active",
+      "description": "",
+      "createdAt": "2026-03-22T22:38:16.292Z"
+    },
+    {
+      "id": "05bbcfdb-7a74-4e3a-9640-6326faf010a9",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Sân 3",
+      "courtType": "outdoor",
+      "surfaceType": "cushion",
+      "status": "active",
+      "description": "",
+      "createdAt": "2026-03-24T18:57:24.763Z"
+    },
+    {
+      "id": "a96a6e3a-dd33-4eb3-8fff-f1f9ad8e9098",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "name": "Sân 4",
+      "courtType": "indoor",
+      "surfaceType": "cushion",
+      "status": "active",
+      "description": "addasdas",
+      "createdAt": "2026-03-25T15:32:27.450Z"
     }
   ],
   "priceRules": [
@@ -218,6 +251,17 @@
       "pricePerHour": 170000,
       "effectiveFrom": "2024-02-21",
       "effectiveTo": null
+    },
+    {
+      "id": "7126bdf1-0497-4708-a76a-1c6630e38dba",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "courtType": "indoor",
+      "dayType": "weekday",
+      "startTime": "22:00:00",
+      "endTime": "23:00:00",
+      "pricePerHour": 10000,
+      "effectiveFrom": "2026-03-23",
+      "effectiveTo": null
     }
   ],
   "bookings": [
@@ -262,63 +306,421 @@
       "cancelledReason": "Bận việc đột xuất, không thể đến chơi.",
       "cancelledAt": "2024-03-09T18:00:00Z",
       "createdAt": "2024-03-08T09:00:00Z"
+    },
+    {
+      "id": "1b68c47c-6754-4bbc-92ef-42c0ea6265a9",
+      "bookingCode": "PKL-20260324-9230",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T20:56:04.131Z"
+    },
+    {
+      "id": "267e0455-a67c-4b11-b021-fe53b5e11e33",
+      "bookingCode": "PKL-20260323-2651",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:05:04.403Z"
+    },
+    {
+      "id": "4e470f2d-ba17-4039-86ba-53584ec7b6cd",
+      "bookingCode": "PKL-20260322-6913",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 400000,
+      "discountAmount": 20000,
+      "finalAmount": 380000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:24:14.686Z"
+    },
+    {
+      "id": "099295b0-99dd-49d2-9dfc-110bce86da68",
+      "bookingCode": "PKL-20260322-6842",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 400000,
+      "discountAmount": 20000,
+      "finalAmount": 380000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:24:18.136Z"
+    },
+    {
+      "id": "da8319b2-0a91-432a-b1a5-862d15b58fb8",
+      "bookingCode": "PKL-20260323-9669",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 180000,
+      "discountAmount": 9000,
+      "finalAmount": 171000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:24:29.146Z"
+    },
+    {
+      "id": "cc99cf40-6d0f-4f59-a178-87e1781a2caf",
+      "bookingCode": "PKL-20260322-8145",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 200000,
+      "discountAmount": 10000,
+      "finalAmount": 190000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:25:10.236Z"
+    },
+    {
+      "id": "7a741d20-f2b1-4d90-b17b-9759963d7d50",
+      "bookingCode": "PKL-20260325-4205",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:25:18.955Z"
+    },
+    {
+      "id": "392ce63e-e7dd-41b6-9933-019bec583d66",
+      "bookingCode": "PKL-20260323-4478",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 240000,
+      "discountAmount": 12000,
+      "finalAmount": 228000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:30:38.748Z"
+    },
+    {
+      "id": "815cdefb-9709-463a-9740-791657e3e903",
+      "bookingCode": "PKL-20260323-5798",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 240000,
+      "discountAmount": 12000,
+      "finalAmount": 228000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:31:15.548Z"
+    },
+    {
+      "id": "0114b57a-9ac8-4ce7-a24f-a59ebe377ebe",
+      "bookingCode": "PKL-20260323-6694",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 240000,
+      "discountAmount": 12000,
+      "finalAmount": 228000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:32:09.908Z"
+    },
+    {
+      "id": "459f5f61-3768-465d-a982-c569a66f110a",
+      "bookingCode": "PKL-20260323-1925",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 240000,
+      "discountAmount": 12000,
+      "finalAmount": 228000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:33:46.882Z"
+    },
+    {
+      "id": "9c2a3f29-d52a-42c2-97b9-8fd4b4ad314a",
+      "bookingCode": "PKL-20260323-4033",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "pending",
+      "totalAmount": 240000,
+      "discountAmount": 12000,
+      "finalAmount": 228000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:33:57.720Z"
+    },
+    {
+      "id": "d0995728-73f0-4e67-81c8-92bba6cdba27",
+      "bookingCode": "PKL-20260323-4353",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:37:22.742Z"
+    },
+    {
+      "id": "a0b068f5-7951-409d-9afd-f3e1f8c5b9d4",
+      "bookingCode": "PKL-20260323-6904",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:37:50.921Z"
+    },
+    {
+      "id": "766e9b58-2da5-49e5-bfa9-630917e00b79",
+      "bookingCode": "PKL-20260323-6071",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:41:16.972Z"
+    },
+    {
+      "id": "b2055954-3676-427b-928f-1dfbffc0614d",
+      "bookingCode": "PKL-20260323-1413",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:42:49.972Z"
+    },
+    {
+      "id": "bf9ccb30-8c13-4515-926a-5d0a595f28d7",
+      "bookingCode": "PKL-20260323-6876",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "completed",
+      "totalAmount": 120000,
+      "discountAmount": 6000,
+      "finalAmount": 114000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-22T21:43:36.983Z"
+    },
+    {
+      "id": "8c4a2306-ea34-47d5-bf8a-92620ff7a2f4",
+      "bookingCode": "PKL-20260326-5386",
+      "customerId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
+      "status": "paid",
+      "totalAmount": 240000,
+      "discountAmount": 12000,
+      "finalAmount": 228000,
+      "note": null,
+      "cancelledReason": null,
+      "cancelledAt": null,
+      "createdAt": "2026-03-25T17:49:55.385Z"
     }
   ],
   "bookingItems": [
     {
-      "id": "7fbea99b-3343-4795-be5b-92e824e5fe7f",
+      "id": "c860c207-8142-4d18-92d0-459531b3e774",
       "bookingId": "8a451b67-517f-409e-b4be-30ba3e6bf0f7",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
       "date": "2024-03-15",
-      "startTime": "19:00:00",
-      "endTime": "21:00:00",
-      "pricePerHour": 180000,
-      "durationMinutes": 120,
-      "subtotal": 360000
+      "totalAmount": 342000
     },
     {
-      "id": "47500112-609c-4a99-b788-0917080495a7",
+      "id": "6a622914-d619-4005-8880-1b885f272cbc",
       "bookingId": "8a451b67-517f-409e-b4be-30ba3e6bf0f7",
       "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
       "date": "2024-03-15",
-      "startTime": "19:00:00",
-      "endTime": "21:00:00",
-      "pricePerHour": 180000,
-      "durationMinutes": 120,
-      "subtotal": 360000
+      "totalAmount": 342000
     },
     {
-      "id": "a4e82c2e-f990-466b-96d6-224a55708844",
+      "id": "23f3bff4-9dc9-4214-b2da-b1f01f90a57b",
       "bookingId": "22af9f18-daab-48b9-bf58-d1c04126cbf0",
       "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
       "date": "2024-03-22",
-      "startTime": "08:00:00",
-      "endTime": "09:30:00",
-      "pricePerHour": 120000,
-      "durationMinutes": 90,
-      "subtotal": 180000
+      "totalAmount": 171000
     },
     {
-      "id": "82fda4da-9cc2-42f7-91bf-b98cdf1bafd8",
+      "id": "561f788b-028d-4244-88f0-5bb1c9005b4d",
       "bookingId": "85852135-b395-4bee-83e7-4a2f2aa5a42d",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
       "date": "2024-03-10",
-      "startTime": "07:00:00",
-      "endTime": "09:00:00",
-      "pricePerHour": 120000,
-      "durationMinutes": 120,
-      "subtotal": 240000
+      "totalAmount": 228000
     },
     {
-      "id": "bb84f047-d0da-4c81-8422-ee0cb1d21cbd",
+      "id": "4644f796-5db3-41f2-820e-1fe3fda1b4a6",
       "bookingId": "85852135-b395-4bee-83e7-4a2f2aa5a42d",
       "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
       "date": "2024-03-10",
-      "startTime": "07:00:00",
-      "endTime": "08:00:00",
-      "pricePerHour": 120000,
-      "durationMinutes": 60,
-      "subtotal": 120000
+      "totalAmount": 114000
+    },
+    {
+      "id": "e60b75f3-970c-4eb7-9c22-5b2ae0ef171e",
+      "bookingId": "1b68c47c-6754-4bbc-92ef-42c0ea6265a9",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2026-03-24",
+      "totalAmount": 114000
+    },
+    {
+      "id": "9d932b6e-5f30-48a4-83be-c2e7a6c7139a",
+      "bookingId": "267e0455-a67c-4b11-b021-fe53b5e11e33",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 114000
+    },
+    {
+      "id": "464da179-52a9-4112-98ac-fe96137bf065",
+      "bookingId": "4e470f2d-ba17-4039-86ba-53584ec7b6cd",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-22",
+      "totalAmount": 380000
+    },
+    {
+      "id": "c278ba23-bcb4-4f46-96f7-345ee2c7a0e0",
+      "bookingId": "099295b0-99dd-49d2-9dfc-110bce86da68",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-22",
+      "totalAmount": 380000
+    },
+    {
+      "id": "8442be6e-f91d-473d-bd9f-9ffe9ec2c564",
+      "bookingId": "da8319b2-0a91-432a-b1a5-862d15b58fb8",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 171000
+    },
+    {
+      "id": "670aad70-dbc2-4b68-970a-d4b0a716ecb7",
+      "bookingId": "cc99cf40-6d0f-4f59-a178-87e1781a2caf",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2026-03-22",
+      "totalAmount": 190000
+    },
+    {
+      "id": "60e01752-6d34-4f3d-95c5-3233f395b933",
+      "bookingId": "7a741d20-f2b1-4d90-b17b-9759963d7d50",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2026-03-25",
+      "totalAmount": 114000
+    },
+    {
+      "id": "dd7ac738-b236-4ddb-9f4b-8c054d0ff1f7",
+      "bookingId": "392ce63e-e7dd-41b6-9933-019bec583d66",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 228000
+    },
+    {
+      "id": "1352a6f4-aebd-4c9d-ae5f-ee1d2f6a98c6",
+      "bookingId": "815cdefb-9709-463a-9740-791657e3e903",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 228000
+    },
+    {
+      "id": "1d08f2f3-18c3-42ee-9f2b-6a6b36c57d4c",
+      "bookingId": "0114b57a-9ac8-4ce7-a24f-a59ebe377ebe",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2026-03-23",
+      "totalAmount": 228000
+    },
+    {
+      "id": "59b02307-cb50-479b-8e48-7a662d76b6de",
+      "bookingId": "459f5f61-3768-465d-a982-c569a66f110a",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2026-03-23",
+      "totalAmount": 228000
+    },
+    {
+      "id": "9e90d91c-57a6-40c3-beb8-f75694f8b05a",
+      "bookingId": "9c2a3f29-d52a-42c2-97b9-8fd4b4ad314a",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "date": "2026-03-23",
+      "totalAmount": 228000
+    },
+    {
+      "id": "23c1b845-826c-4ee0-be0a-dd75b2481a95",
+      "bookingId": "d0995728-73f0-4e67-81c8-92bba6cdba27",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 114000
+    },
+    {
+      "id": "6018a1c3-1b95-41cc-a93b-f1757008a138",
+      "bookingId": "a0b068f5-7951-409d-9afd-f3e1f8c5b9d4",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 114000
+    },
+    {
+      "id": "2d9eec6c-9bc1-480d-8648-e0ec2b1c501b",
+      "bookingId": "766e9b58-2da5-49e5-bfa9-630917e00b79",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 114000
+    },
+    {
+      "id": "e9f937dc-eda9-4f88-8c47-4e70db1e9d78",
+      "bookingId": "b2055954-3676-427b-928f-1dfbffc0614d",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 114000
+    },
+    {
+      "id": "66ee0a77-8547-494f-8c23-db8f48a0f18d",
+      "bookingId": "bf9ccb30-8c13-4515-926a-5d0a595f28d7",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-23",
+      "totalAmount": 114000
+    },
+    {
+      "id": "68bdeefc-939c-4f8b-af80-c7f64c659d94",
+      "bookingId": "8c4a2306-ea34-47d5-bf8a-92620ff7a2f4",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "date": "2026-03-30",
+      "totalAmount": 228000
     }
   ],
   "payments": [
@@ -378,6 +780,126 @@
       "paidAt": "2024-03-08T09:08:23Z",
       "refundedAt": "2024-03-09T20:00:00Z",
       "createdAt": "2024-03-08T09:00:00Z"
+    },
+    {
+      "id": "cb27416c-6d17-4fca-947c-ae661ee3850a",
+      "bookingId": "1b68c47c-6754-4bbc-92ef-42c0ea6265a9",
+      "method": "qr_momo",
+      "amount": 114000,
+      "status": "success",
+      "transactionRef": "QR_MOMO20260322205604",
+      "gatewayResponse": {
+        "message": "Thành công",
+        "resultCode": 0
+      },
+      "paidAt": "2026-03-22T20:56:06.135Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-22T20:56:04.131Z"
+    },
+    {
+      "id": "773ec138-bb05-4035-a24f-92489b99899b",
+      "bookingId": "267e0455-a67c-4b11-b021-fe53b5e11e33",
+      "method": "qr_vietqr",
+      "amount": 114000,
+      "status": "success",
+      "transactionRef": "VCB20260322210504",
+      "gatewayResponse": {
+        "message": "Thanh cong",
+        "resultCode": 0
+      },
+      "paidAt": "2026-03-22T21:05:06.080Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-22T21:05:04.403Z"
+    },
+    {
+      "id": "6fd62e7e-2ebb-4ef8-9b2f-86e3f5fb2df3",
+      "bookingId": "d0995728-73f0-4e67-81c8-92bba6cdba27",
+      "method": "qr_vietqr",
+      "amount": 114000,
+      "status": "success",
+      "transactionRef": "VCB20260322213722",
+      "gatewayResponse": {
+        "message": "Thanh cong",
+        "resultCode": 0
+      },
+      "paidAt": "2026-03-22T21:37:24.511Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-22T21:37:22.742Z"
+    },
+    {
+      "id": "347bddf5-223b-46f1-b7de-e71fff521eb4",
+      "bookingId": "a0b068f5-7951-409d-9afd-f3e1f8c5b9d4",
+      "method": "qr_vietqr",
+      "amount": 114000,
+      "status": "success",
+      "transactionRef": "VCB20260322213750",
+      "gatewayResponse": {
+        "message": "Thanh cong",
+        "resultCode": 0
+      },
+      "paidAt": "2026-03-22T21:37:52.672Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-22T21:37:50.921Z"
+    },
+    {
+      "id": "30cc860c-2c39-4110-8223-f895bce44175",
+      "bookingId": "766e9b58-2da5-49e5-bfa9-630917e00b79",
+      "method": "qr_vietqr",
+      "amount": 114000,
+      "status": "success",
+      "transactionRef": "VCB20260322214116",
+      "gatewayResponse": {
+        "message": "Thanh cong",
+        "resultCode": 0
+      },
+      "paidAt": "2026-03-22T21:41:18.733Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-22T21:41:16.972Z"
+    },
+    {
+      "id": "5cacd6df-9dbf-49f4-aadb-bafa84e5ca0f",
+      "bookingId": "b2055954-3676-427b-928f-1dfbffc0614d",
+      "method": "qr_vietqr",
+      "amount": 114000,
+      "status": "success",
+      "transactionRef": "VCB20260322214249",
+      "gatewayResponse": {
+        "message": "Thanh cong",
+        "resultCode": 0
+      },
+      "paidAt": "2026-03-22T21:42:51.745Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-22T21:42:49.972Z"
+    },
+    {
+      "id": "eed12b1b-9a3c-4c66-b3d7-bb2a508882e3",
+      "bookingId": "bf9ccb30-8c13-4515-926a-5d0a595f28d7",
+      "method": "qr_vietqr",
+      "amount": 114000,
+      "status": "success",
+      "transactionRef": "VCB20260322214336",
+      "gatewayResponse": {
+        "message": "Thanh cong",
+        "resultCode": 0
+      },
+      "paidAt": "2026-03-22T21:43:38.773Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-22T21:43:36.983Z"
+    },
+    {
+      "id": "8a1b7243-62dd-4733-921e-556214edbcbf",
+      "bookingId": "8c4a2306-ea34-47d5-bf8a-92620ff7a2f4",
+      "method": "qr_tpb",
+      "amount": 228000,
+      "status": "success",
+      "transactionRef": "PKL1774460923363",
+      "gatewayResponse": {
+        "txRef": "PKL1774460923363",
+        "message": "Mock payment confirmed"
+      },
+      "paidAt": "2026-03-25T17:49:55.385Z",
+      "refundedAt": null,
+      "createdAt": "2026-03-25T17:49:55.385Z"
     }
   ],
   "reviews": [
@@ -436,6 +958,83 @@
       "isRead": false,
       "readAt": null,
       "createdAt": "2024-03-22T06:00:00Z"
+    },
+    {
+      "id": "2108ccdd-2e0d-4265-965c-0711a6946448",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Đặt sân thành công – PKL-20260324-9230",
+      "content": "Booking của bạn đã được xác nhận. Sân Sân A2 ngày 2026-03-24. Tổng tiền: 114.000đ.",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2026-03-22T20:56:06.206Z"
+    },
+    {
+      "id": "742b07c0-17e5-4b3d-8cf4-b487cc8b8948",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Dat san thanh cong - PKL-20260323-2651",
+      "content": "Booking cua ban da duoc xac nhan. San Sân A1 ngay 2026-03-23. Tong tien: 114.000d.",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2026-03-22T21:05:06.162Z"
+    },
+    {
+      "id": "fd1da7f7-7e3f-4722-884f-0f5f99092b90",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Dat san thanh cong - PKL-20260323-4353",
+      "content": "San Sân A1 ngay 2026-03-23. Tong tien: 114.000d.",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2026-03-22T21:37:24.622Z"
+    },
+    {
+      "id": "0971e131-a1de-4411-a19b-423957910920",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Dat san thanh cong - PKL-20260323-6904",
+      "content": "San Sân A1 ngay 2026-03-23. Tong tien: 114.000d.",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2026-03-22T21:37:52.784Z"
+    },
+    {
+      "id": "27b77b1c-5daa-4d3e-ba3c-4e25955de2ce",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Dat san thanh cong - PKL-20260323-6071",
+      "content": "San Sân A1 ngay 2026-03-23. Tong tien: 114.000d.",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2026-03-22T21:41:18.844Z"
+    },
+    {
+      "id": "1ac8d5af-04d9-4ba1-ac3d-d30be1a0fbc9",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Dat san thanh cong - PKL-20260323-1413",
+      "content": "San Sân A1 ngay 2026-03-23. Tong tien: 114.000d.",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2026-03-22T21:42:51.857Z"
+    },
+    {
+      "id": "ead4c648-ba82-4142-a9dd-2a5eecd5fbe4",
+      "senderId": "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890",
+      "recipientId": "c1615037-5efc-4eea-ae68-03ed400efbd6",
+      "type": "booking",
+      "title": "Dat san thanh cong - PKL-20260323-6876",
+      "content": "San Sân A1 ngay 2026-03-23. Tong tien: 114.000d.",
+      "isRead": false,
+      "readAt": null,
+      "createdAt": "2026-03-22T21:43:38.901Z"
     }
   ],
   "complexImages": [
@@ -469,44 +1068,717 @@
   ],
   "courtSchedules": [
     {
+      "id": "c79a2ef4-39f3-44f7-8571-91a9eb21aac6",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
-      "date": "2024-03-15",
-      "slotStart": "19:00:00",
-      "slotEnd": "21:00:00",
+      "slotId": "ce1b96d1-c5bb-4901-91f8-a89ff33b3a45",
       "status": "booked",
-      "bookingItemId": "7fbea99b-3343-4795-be5b-92e824e5fe7f"
+      "date": "2024-03-15",
+      "bookingItemId": "c860c207-8142-4d18-92d0-459531b3e774"
     },
     {
+      "id": "e0ffd8b2-cf24-4812-bcd0-5d5a8b190cf6",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "c7b17c1f-4c0b-4d1f-a53b-9fa793436039",
+      "status": "booked",
+      "date": "2024-03-15",
+      "bookingItemId": "c860c207-8142-4d18-92d0-459531b3e774"
+    },
+    {
+      "id": "12a8356b-9ea6-413a-8866-982ea3dda9ba",
       "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "ce1b96d1-c5bb-4901-91f8-a89ff33b3a45",
+      "status": "booked",
       "date": "2024-03-15",
-      "slotStart": "19:00:00",
-      "slotEnd": "21:00:00",
-      "status": "booked",
-      "bookingItemId": "47500112-609c-4a99-b788-0917080495a7"
+      "bookingItemId": "6a622914-d619-4005-8880-1b885f272cbc"
     },
     {
+      "id": "3e62c6dd-1bd4-411a-9f1b-0d780680ed33",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "c7b17c1f-4c0b-4d1f-a53b-9fa793436039",
+      "status": "booked",
+      "date": "2024-03-15",
+      "bookingItemId": "6a622914-d619-4005-8880-1b885f272cbc"
+    },
+    {
+      "id": "c9a62209-e10c-4ccb-a01e-fa02024c28ce",
       "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
-      "date": "2024-03-22",
-      "slotStart": "08:00:00",
-      "slotEnd": "09:30:00",
+      "slotId": "ea257261-ea96-4863-abfe-396443e6e95d",
       "status": "booked",
-      "bookingItemId": "a4e82c2e-f990-466b-96d6-224a55708844"
-    },
-    {
-      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
       "date": "2024-03-22",
-      "slotStart": "07:00:00",
-      "slotEnd": "09:00:00",
+      "bookingItemId": "23f3bff4-9dc9-4214-b2da-b1f01f90a57b"
+    },
+    {
+      "id": "1b0c8303-304f-43e5-b51d-44ae9ae3fa20",
+      "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "slotId": "ae9b8caa-69ef-4401-80b9-b1f09b40d088",
+      "status": "booked",
+      "date": "2024-03-22",
+      "bookingItemId": "23f3bff4-9dc9-4214-b2da-b1f01f90a57b"
+    },
+    {
+      "id": "d6e0f899-6b6f-476c-8bf8-7e258d02fb9f",
+      "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "slotId": "c9efe743-0f26-4396-8196-131ec898c258",
+      "status": "booked",
+      "date": "2024-03-22",
+      "bookingItemId": "23f3bff4-9dc9-4214-b2da-b1f01f90a57b"
+    },
+    {
+      "id": "3c1d9e6a-59c6-4014-a10e-72388f00c1e3",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
       "status": "available",
+      "date": "2024-03-22",
       "bookingItemId": null
     },
     {
+      "id": "d5624b51-1b50-40fe-ad0a-00bca2eb0540",
       "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
-      "date": "2024-03-25",
-      "slotStart": "06:00:00",
-      "slotEnd": "12:00:00",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
       "status": "blocked",
+      "date": "2024-03-25",
       "bookingItemId": null
+    },
+    {
+      "id": "08917b62-9a25-48d4-ae21-e087a9d647fc",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "blocked",
+      "date": "2024-03-25",
+      "bookingItemId": null
+    },
+    {
+      "id": "e764cfcf-cd15-47fe-827a-92e5344273e9",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "e9c4d663-f72b-4a83-85e1-5008cd3f8b0c",
+      "status": "blocked",
+      "date": "2024-03-25",
+      "bookingItemId": null
+    },
+    {
+      "id": "6ff9e3c6-6b90-4160-9627-d6d60a97459c",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "83e6e87c-eb2d-4103-babb-472b7497afd1",
+      "status": "blocked",
+      "date": "2024-03-25",
+      "bookingItemId": null
+    },
+    {
+      "id": "93dd521d-271f-4425-b0e3-5beb7fe014b2",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "blocked",
+      "date": "2024-03-25",
+      "bookingItemId": null
+    },
+    {
+      "id": "f23adfd1-2a8e-4d71-b350-79adf3e816ef",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "blocked",
+      "date": "2024-03-25",
+      "bookingItemId": null
+    },
+    {
+      "id": "b2e1013c-9375-4052-95b0-4d5b34163f86",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "status": "booked",
+      "date": "2026-03-24",
+      "bookingItemId": "e60b75f3-970c-4eb7-9c22-5b2ae0ef171e"
+    },
+    {
+      "id": "95cbcb25-ab79-45c3-b257-3d8ccd7cde98",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "booked",
+      "date": "2026-03-23",
+      "bookingItemId": "9d932b6e-5f30-48a4-83be-c2e7a6c7139a"
+    },
+    {
+      "id": "ee507499-7d17-42b5-8284-3e1ff3b15db2",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:18:26.365Z"
+    },
+    {
+      "id": "461040d1-159b-4e9f-8052-53f79378cdd6",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:18:26.365Z"
+    },
+    {
+      "id": "6875f4af-76b9-4d0d-b173-ce6f7d576a84",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:18:27.584Z"
+    },
+    {
+      "id": "268d20c6-01e5-43a1-8939-55d577b87d4c",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:18:27.584Z"
+    },
+    {
+      "id": "dba4e843-c9ac-4400-b799-ef4565034611",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:18:27.584Z"
+    },
+    {
+      "id": "23978e2b-4715-4593-909f-af13d0e3f7a5",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:21:00.664Z"
+    },
+    {
+      "id": "74ea09e6-f96c-4109-911f-846fa9ad66c0",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:24:44.015Z"
+    },
+    {
+      "id": "7932f969-31fd-43c8-b051-72ae10e9df7b",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "8a3b1e1b-f07f-4af4-a711-2bb611620a95",
+      "status": "holding",
+      "date": "2026-03-24",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:25:01.835Z"
+    },
+    {
+      "id": "df8677fe-aacf-45b5-b5c2-cd1c4ede8f16",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0de82b68-6292-4271-98c1-56688392f382",
+      "status": "holding",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:25:18.295Z"
+    },
+    {
+      "id": "ac04d486-97da-4db6-b9ed-1e46b7501004",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "status": "holding",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:25:18.295Z"
+    },
+    {
+      "id": "22204e09-4a63-47d8-9ad9-a70c00e6fe1b",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "8a3b1e1b-f07f-4af4-a711-2bb611620a95",
+      "status": "holding",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:25:18.295Z"
+    },
+    {
+      "id": "3ceff62c-ab47-4023-84c9-7b5e4351151a",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:25:37.975Z"
+    },
+    {
+      "id": "3cd42a58-18be-469d-8f3b-274b7dded15b",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:27:10.726Z"
+    },
+    {
+      "id": "c010eb17-3635-47d1-b9cf-c85032915fc7",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "holding",
+      "date": "2026-03-22",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:27:54.446Z"
+    },
+    {
+      "id": "8cf889c4-b39d-47aa-94e0-ae93c56b6caf",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:33:35.880Z"
+    },
+    {
+      "id": "fff4ff2b-7890-4cad-9d29-ca9ecb70a83b",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "e9c4d663-f72b-4a83-85e1-5008cd3f8b0c",
+      "status": "holding",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:35:06.720Z"
+    },
+    {
+      "id": "44a7b136-e2f1-4c77-ad0d-f51cfe2b5b90",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "expired",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:40:20.114Z"
+    },
+    {
+      "id": "fa0b844b-6ccd-4d2f-bb44-edefde47cb8d",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "booked",
+      "date": "2026-03-23",
+      "bookingItemId": "23c1b845-826c-4ee0-be0a-dd75b2481a95",
+      "holdExpiredAt": null
+    },
+    {
+      "id": "8c8869ae-d5f1-403c-be0e-d53a51dcaef4",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "expired",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:40:48.683Z"
+    },
+    {
+      "id": "12a2b6d3-5a25-428b-8e5d-abb58ac1c0e4",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "booked",
+      "date": "2026-03-23",
+      "bookingItemId": "6018a1c3-1b95-41cc-a93b-f1757008a138",
+      "holdExpiredAt": null
+    },
+    {
+      "id": "e26bd466-b240-4b8d-b352-f640d41edec0",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "holding",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:44:08.512Z"
+    },
+    {
+      "id": "49617948-4287-45aa-a90e-decce8cace10",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "e9c4d663-f72b-4a83-85e1-5008cd3f8b0c",
+      "status": "expired",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:44:14.731Z"
+    },
+    {
+      "id": "c1a70a69-3dbf-4be7-bed7-0814146448cc",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "e9c4d663-f72b-4a83-85e1-5008cd3f8b0c",
+      "status": "booked",
+      "date": "2026-03-23",
+      "bookingItemId": "2d9eec6c-9bc1-480d-8648-e0ec2b1c501b",
+      "holdExpiredAt": null
+    },
+    {
+      "id": "53dbdf51-7aae-4d9a-8037-ebc25fb0e13a",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "expired",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:45:47.742Z"
+    },
+    {
+      "id": "193da5ed-fcd5-49f7-aca4-89b701bffb0a",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "booked",
+      "date": "2026-03-23",
+      "bookingItemId": "e9f937dc-eda9-4f88-8c47-4e70db1e9d78",
+      "holdExpiredAt": null
+    },
+    {
+      "id": "4d11abc4-6110-49ae-b51b-d48befcf7ac7",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "a7216459-8f20-449c-b643-e89c13bb3768",
+      "status": "holding",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:46:29.322Z"
+    },
+    {
+      "id": "ce61c243-03e7-4b9f-bb07-6895243fb01c",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "c3857a80-ce96-468b-aeae-4622568572f6",
+      "status": "expired",
+      "date": "2026-03-23",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-22T21:46:35.022Z"
+    },
+    {
+      "id": "3e4a3596-eccd-416b-bf5c-6effab470e33",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "c3857a80-ce96-468b-aeae-4622568572f6",
+      "status": "booked",
+      "date": "2026-03-23",
+      "bookingItemId": "66ee0a77-8547-494f-8c23-db8f48a0f18d",
+      "holdExpiredAt": null
+    },
+    {
+      "id": "e8e8ed0d-7a04-4431-8719-22bbf00419c6",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "c7b17c1f-4c0b-4d1f-a53b-9fa793436039",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:33:17.182Z"
+    },
+    {
+      "id": "b96c6b86-34a7-4318-8dd1-30423392265d",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:33:17.182Z"
+    },
+    {
+      "id": "683b8601-7cce-4215-9fdd-34cf3c3be137",
+      "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "slotId": "c7b17c1f-4c0b-4d1f-a53b-9fa793436039",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:33:48.102Z"
+    },
+    {
+      "id": "5eb39ea1-eb5e-4f19-af63-cbf1b8cd0743",
+      "courtId": "65990b9c-0f56-4fae-9269-6728a73a0165",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:33:48.102Z"
+    },
+    {
+      "id": "22cbf617-5554-4bd9-8992-18b97d2f93c8",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "c7b17c1f-4c0b-4d1f-a53b-9fa793436039",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:45:00.812Z"
+    },
+    {
+      "id": "f19f0a71-2ad0-4189-a306-3a2152c942d9",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:45:00.812Z"
+    },
+    {
+      "id": "36f61de7-8ec4-4e9a-bad5-dcd8d079c207",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "c7b17c1f-4c0b-4d1f-a53b-9fa793436039",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:45:49.932Z"
+    },
+    {
+      "id": "31fb18ca-a520-46b5-9ab1-f7b0c6727672",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T13:45:49.932Z"
+    },
+    {
+      "id": "4033d1f9-a716-472a-ab8d-90d01245ae89",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T14:04:44.236Z"
+    },
+    {
+      "id": "48269dab-fde8-4ceb-89da-3ef4ef69bee9",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T14:09:47.356Z"
+    },
+    {
+      "id": "ff5b06aa-c89a-4217-b022-1bf6af7fb573",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T14:15:41.039Z"
+    },
+    {
+      "id": "c9bbce73-6b2c-40a5-8e51-1ca742465a3a",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T14:50:13.908Z"
+    },
+    {
+      "id": "5087143f-307a-427e-b433-d2d483e52ac9",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T14:52:10.289Z"
+    },
+    {
+      "id": "7003ccaf-a7af-4bf6-ba37-ce64d4479c46",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:24:07.368Z"
+    },
+    {
+      "id": "499a124f-c4c9-43cb-9f5a-d97a9476900d",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "a7216459-8f20-449c-b643-e89c13bb3768",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:24:07.368Z"
+    },
+    {
+      "id": "eb0d09e5-852e-482a-bfb5-3529c9d18de1",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "c3857a80-ce96-468b-aeae-4622568572f6",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:24:07.368Z"
+    },
+    {
+      "id": "6cd68ccd-fdc2-484a-97ba-4573bbd4b70f",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:24:07.368Z"
+    },
+    {
+      "id": "ae83427f-5c4c-4ad9-933f-8bea740378be",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0de82b68-6292-4271-98c1-56688392f382",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:24:21.987Z"
+    },
+    {
+      "id": "4cbfd777-679e-4200-8e4f-ad2ebc0ce585",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:24:21.987Z"
+    },
+    {
+      "id": "2ff6686b-6ee9-4431-b77d-b007ae2da60d",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "f8c4c1e1-f366-4151-ad2f-2ffa645a35fd",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:24:21.987Z"
+    },
+    {
+      "id": "04d1a886-5382-44b6-97ed-a82bd3d92e79",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:34:31.092Z"
+    },
+    {
+      "id": "da392b3d-41a3-475f-bf95-82048e760b2f",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:34:31.092Z"
+    },
+    {
+      "id": "55a0b697-ba56-4e8f-abde-5119081364a9",
+      "courtId": "7e35b440-96e7-47e6-9b6e-3cc786aa51d6",
+      "slotId": "a7216459-8f20-449c-b643-e89c13bb3768",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:34:31.092Z"
+    },
+    {
+      "id": "3cd33484-2944-44f4-ba81-ecad8a0ce650",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "d2feab33-da6b-4191-aa3d-f4e982cd8939",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "d669da61-ec10-4e11-966c-4f5ec351c1bd",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "f7e70961-85a9-4313-819c-b531707e1206",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "status": "holding",
+      "date": "2026-03-27",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T15:55:33.289Z"
+    },
+    {
+      "id": "e55f206f-8d44-4c81-970f-2805974bf22c",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:22.841Z"
+    },
+    {
+      "id": "4ba1674e-cdf4-405d-b6a2-1b56bbeee812",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "e9c4d663-f72b-4a83-85e1-5008cd3f8b0c",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:22.841Z"
+    },
+    {
+      "id": "c4039c0e-644a-4793-8579-5cd2c2a275d0",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "a7216459-8f20-449c-b643-e89c13bb3768",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:27.532Z"
+    },
+    {
+      "id": "c5d5b541-4b11-4348-ad3d-ae9cd859ef7a",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "c3857a80-ce96-468b-aeae-4622568572f6",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:27.532Z"
+    },
+    {
+      "id": "7e656f35-77ec-4a07-bb6c-9f3ac37957b9",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:55.672Z"
+    },
+    {
+      "id": "7b613cbd-2266-417f-9ccd-11fa15b13042",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:17:55.672Z"
+    },
+    {
+      "id": "41e5b654-747e-45d1-a7d3-3f4254a2ae76",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0de82b68-6292-4271-98c1-56688392f382",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
+    },
+    {
+      "id": "baf0a03a-6427-492c-be6f-277d7b8b4316",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
+    },
+    {
+      "id": "24188fb9-8bd6-4a79-bece-ac9419d26c6b",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "f8c4c1e1-f366-4151-ad2f-2ffa645a35fd",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
+    },
+    {
+      "id": "5df6b0e1-9f96-4449-b523-278bc77e3353",
+      "courtId": "3e56b525-1ed3-4a0e-b8f9-a9b0522290d4",
+      "slotId": "4404e536-2a95-4fac-931e-f2833723c708",
+      "status": "holding",
+      "date": "2026-03-26",
+      "bookingItemId": null,
+      "holdExpiredAt": "2026-03-25T17:18:02.683Z"
     }
   ],
   "complexAmenities": [
@@ -545,6 +1817,344 @@
       "complexId": "22053b59-67c7-4d5c-9d4d-c053b3b0413a",
       "name": "Camera an ninh 24/7",
       "description": "Camera giám sát toàn bộ khu vực sân và khu vực công cộng, đảm bảo an toàn tài sản."
+    }
+  ],
+  "slots": [
+    {
+      "id": "13fdc028-1e4f-4358-819c-503cd6dd9af7",
+      "slotType": "30min",
+      "slotStart": "06:00:00",
+      "slotEnd": "06:30:00"
+    },
+    {
+      "id": "246e9548-150a-415d-ac5c-ee992e877528",
+      "slotType": "30min",
+      "slotStart": "06:30:00",
+      "slotEnd": "07:00:00"
+    },
+    {
+      "id": "83816776-1af0-43c8-b11f-6b8506a13ba8",
+      "slotType": "30min",
+      "slotStart": "07:00:00",
+      "slotEnd": "07:30:00"
+    },
+    {
+      "id": "fad567d8-9ce2-43d0-a892-d9291d65bb76",
+      "slotType": "30min",
+      "slotStart": "07:30:00",
+      "slotEnd": "08:00:00"
+    },
+    {
+      "id": "ea257261-ea96-4863-abfe-396443e6e95d",
+      "slotType": "30min",
+      "slotStart": "08:00:00",
+      "slotEnd": "08:30:00"
+    },
+    {
+      "id": "ae9b8caa-69ef-4401-80b9-b1f09b40d088",
+      "slotType": "30min",
+      "slotStart": "08:30:00",
+      "slotEnd": "09:00:00"
+    },
+    {
+      "id": "c9efe743-0f26-4396-8196-131ec898c258",
+      "slotType": "30min",
+      "slotStart": "09:00:00",
+      "slotEnd": "09:30:00"
+    },
+    {
+      "id": "152e46ca-8898-4e2e-abcc-e97e263333f5",
+      "slotType": "30min",
+      "slotStart": "09:30:00",
+      "slotEnd": "10:00:00"
+    },
+    {
+      "id": "dfa2a8fb-6f45-4a9b-8649-2c18dcf44252",
+      "slotType": "30min",
+      "slotStart": "10:00:00",
+      "slotEnd": "10:30:00"
+    },
+    {
+      "id": "9d671f94-c1cc-4484-afe1-9e145c24647c",
+      "slotType": "30min",
+      "slotStart": "10:30:00",
+      "slotEnd": "11:00:00"
+    },
+    {
+      "id": "a16be1f3-aaaf-4706-80c7-432feab74749",
+      "slotType": "30min",
+      "slotStart": "11:00:00",
+      "slotEnd": "11:30:00"
+    },
+    {
+      "id": "934b2e4f-fc1d-4df8-8980-f36442ee4cd2",
+      "slotType": "30min",
+      "slotStart": "11:30:00",
+      "slotEnd": "12:00:00"
+    },
+    {
+      "id": "a66c2344-5df1-457b-94bc-eb053b84b25d",
+      "slotType": "30min",
+      "slotStart": "12:00:00",
+      "slotEnd": "12:30:00"
+    },
+    {
+      "id": "20b10c87-0c61-4c50-936f-f149f10bd1e0",
+      "slotType": "30min",
+      "slotStart": "12:30:00",
+      "slotEnd": "13:00:00"
+    },
+    {
+      "id": "59573ffc-1592-4d2a-9c1f-4568d6118625",
+      "slotType": "30min",
+      "slotStart": "13:00:00",
+      "slotEnd": "13:30:00"
+    },
+    {
+      "id": "8eee7039-a89c-4b51-8e91-916f29fe2924",
+      "slotType": "30min",
+      "slotStart": "13:30:00",
+      "slotEnd": "14:00:00"
+    },
+    {
+      "id": "b2799b64-cfb7-4175-8374-eacabd2d7517",
+      "slotType": "30min",
+      "slotStart": "14:00:00",
+      "slotEnd": "14:30:00"
+    },
+    {
+      "id": "b7da00ca-bd86-44c5-be63-89504ddca2c1",
+      "slotType": "30min",
+      "slotStart": "14:30:00",
+      "slotEnd": "15:00:00"
+    },
+    {
+      "id": "bfba040e-82e5-49a7-9b64-ee8d343ae9f9",
+      "slotType": "30min",
+      "slotStart": "15:00:00",
+      "slotEnd": "15:30:00"
+    },
+    {
+      "id": "d8aaa716-f2c5-473e-bd5a-a5dcab6e91d2",
+      "slotType": "30min",
+      "slotStart": "15:30:00",
+      "slotEnd": "16:00:00"
+    },
+    {
+      "id": "ffa029c1-f37a-4401-8904-5e68beba9aa5",
+      "slotType": "30min",
+      "slotStart": "16:00:00",
+      "slotEnd": "16:30:00"
+    },
+    {
+      "id": "f8c8d5d1-99ba-4d40-9087-a63e7a0eb8b7",
+      "slotType": "30min",
+      "slotStart": "16:30:00",
+      "slotEnd": "17:00:00"
+    },
+    {
+      "id": "892565ab-4ae5-46a8-be7f-fc99a8bdb16d",
+      "slotType": "30min",
+      "slotStart": "17:00:00",
+      "slotEnd": "17:30:00"
+    },
+    {
+      "id": "128c4393-86a9-4167-94f5-1da32b31ff8f",
+      "slotType": "30min",
+      "slotStart": "17:30:00",
+      "slotEnd": "18:00:00"
+    },
+    {
+      "id": "0f89b579-5191-46b5-8f11-badfb2511f95",
+      "slotType": "30min",
+      "slotStart": "18:00:00",
+      "slotEnd": "18:30:00"
+    },
+    {
+      "id": "cade0ae8-1918-47dd-a957-d7adf1e02297",
+      "slotType": "30min",
+      "slotStart": "18:30:00",
+      "slotEnd": "19:00:00"
+    },
+    {
+      "id": "e6d3a481-1a47-4a63-82e4-8f3abbd87df9",
+      "slotType": "30min",
+      "slotStart": "19:00:00",
+      "slotEnd": "19:30:00"
+    },
+    {
+      "id": "99a4bd40-c852-419d-a7f5-1c341041bdb4",
+      "slotType": "30min",
+      "slotStart": "19:30:00",
+      "slotEnd": "20:00:00"
+    },
+    {
+      "id": "9fb38539-0a9c-4d0b-af24-b49ee45cf474",
+      "slotType": "30min",
+      "slotStart": "20:00:00",
+      "slotEnd": "20:30:00"
+    },
+    {
+      "id": "ec3bd168-44e6-44da-a646-d3d4141d590e",
+      "slotType": "30min",
+      "slotStart": "20:30:00",
+      "slotEnd": "21:00:00"
+    },
+    {
+      "id": "53bc6420-4622-47f7-93b1-def4e96ba3b2",
+      "slotType": "30min",
+      "slotStart": "21:00:00",
+      "slotEnd": "21:30:00"
+    },
+    {
+      "id": "06180fb1-be38-4d64-a255-b83b72b8730e",
+      "slotType": "30min",
+      "slotStart": "21:30:00",
+      "slotEnd": "22:00:00"
+    },
+    {
+      "id": "9465e507-f01a-417a-8574-a69f6778e01b",
+      "slotType": "60min",
+      "slotStart": "06:00:00",
+      "slotEnd": "07:00:00"
+    },
+    {
+      "id": "3840da3e-78f7-44b7-b28b-db4bf5cb57ac",
+      "slotType": "60min",
+      "slotStart": "07:00:00",
+      "slotEnd": "08:00:00"
+    },
+    {
+      "id": "e9c4d663-f72b-4a83-85e1-5008cd3f8b0c",
+      "slotType": "60min",
+      "slotStart": "08:00:00",
+      "slotEnd": "09:00:00"
+    },
+    {
+      "id": "83e6e87c-eb2d-4103-babb-472b7497afd1",
+      "slotType": "60min",
+      "slotStart": "09:00:00",
+      "slotEnd": "10:00:00"
+    },
+    {
+      "id": "fe86433f-4d1c-4fdb-b4b7-6c009cb1cd0d",
+      "slotType": "60min",
+      "slotStart": "10:00:00",
+      "slotEnd": "11:00:00"
+    },
+    {
+      "id": "b7f1e967-bdfc-4145-9eb3-80e559ae50b5",
+      "slotType": "60min",
+      "slotStart": "11:00:00",
+      "slotEnd": "12:00:00"
+    },
+    {
+      "id": "a7216459-8f20-449c-b643-e89c13bb3768",
+      "slotType": "60min",
+      "slotStart": "12:00:00",
+      "slotEnd": "13:00:00"
+    },
+    {
+      "id": "c3857a80-ce96-468b-aeae-4622568572f6",
+      "slotType": "60min",
+      "slotStart": "13:00:00",
+      "slotEnd": "14:00:00"
+    },
+    {
+      "id": "0de82b68-6292-4271-98c1-56688392f382",
+      "slotType": "60min",
+      "slotStart": "14:00:00",
+      "slotEnd": "15:00:00"
+    },
+    {
+      "id": "0ab837d2-3882-44ec-b461-d93cd18cdb40",
+      "slotType": "60min",
+      "slotStart": "15:00:00",
+      "slotEnd": "16:00:00"
+    },
+    {
+      "id": "f8c4c1e1-f366-4151-ad2f-2ffa645a35fd",
+      "slotType": "60min",
+      "slotStart": "16:00:00",
+      "slotEnd": "17:00:00"
+    },
+    {
+      "id": "4404e536-2a95-4fac-931e-f2833723c708",
+      "slotType": "60min",
+      "slotStart": "17:00:00",
+      "slotEnd": "18:00:00"
+    },
+    {
+      "id": "8a3b1e1b-f07f-4af4-a711-2bb611620a95",
+      "slotType": "60min",
+      "slotStart": "18:00:00",
+      "slotEnd": "19:00:00"
+    },
+    {
+      "id": "ce1b96d1-c5bb-4901-91f8-a89ff33b3a45",
+      "slotType": "60min",
+      "slotStart": "19:00:00",
+      "slotEnd": "20:00:00"
+    },
+    {
+      "id": "c7b17c1f-4c0b-4d1f-a53b-9fa793436039",
+      "slotType": "60min",
+      "slotStart": "20:00:00",
+      "slotEnd": "21:00:00"
+    },
+    {
+      "id": "48444ff0-4246-4c73-b0f5-6252b07a6abe",
+      "slotType": "60min",
+      "slotStart": "21:00:00",
+      "slotEnd": "22:00:00"
+    },
+    {
+      "id": "0b9f0095-6fd4-4e50-b7b7-d48a1e7b1ccb",
+      "slotType": "120min",
+      "slotStart": "06:00:00",
+      "slotEnd": "08:00:00"
+    },
+    {
+      "id": "117f8b92-1942-460a-a32c-49eab0e607f3",
+      "slotType": "120min",
+      "slotStart": "08:00:00",
+      "slotEnd": "10:00:00"
+    },
+    {
+      "id": "227e5420-c160-4581-a525-ab855347b2d1",
+      "slotType": "120min",
+      "slotStart": "10:00:00",
+      "slotEnd": "12:00:00"
+    },
+    {
+      "id": "d678298c-56ea-4ca7-95f4-19fcbb5f5ae5",
+      "slotType": "120min",
+      "slotStart": "12:00:00",
+      "slotEnd": "14:00:00"
+    },
+    {
+      "id": "f2d684e6-f51c-47ac-b69f-623b7a40292a",
+      "slotType": "120min",
+      "slotStart": "14:00:00",
+      "slotEnd": "16:00:00"
+    },
+    {
+      "id": "94d0ada9-9c19-4cb5-9dff-932c91b69d4f",
+      "slotType": "120min",
+      "slotStart": "16:00:00",
+      "slotEnd": "18:00:00"
+    },
+    {
+      "id": "6828156a-8b6a-43ef-92ac-9ccc4896efb1",
+      "slotType": "120min",
+      "slotStart": "18:00:00",
+      "slotEnd": "20:00:00"
+    },
+    {
+      "id": "94408f23-01ee-40df-99c7-12785a66f38f",
+      "slotType": "120min",
+      "slotStart": "20:00:00",
+      "slotEnd": "22:00:00"
     }
   ]
 }

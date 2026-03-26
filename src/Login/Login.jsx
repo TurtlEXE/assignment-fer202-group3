@@ -93,7 +93,7 @@ const Login = () => {
       } else if (matched.role === "owner") {
         navigate("/dashboard");
       } else {
-        navigate("/");
+                navigate("/complexes");
       }
     }, 1000);
   };
@@ -140,7 +140,7 @@ const Login = () => {
           <h2 style={S.cardH}>Chào mừng trở lại 👋</h2>
           <p style={S.cardSub}>Đăng nhập để tiếp tục</p>
           <div style={S.tabs}>
-            {[{ v: "customer", l: "🙋 Khách hàng" }, { v: "owner", l: "🛠 Owner" }, { v: "admin", l: "🔐 Admin" }].map(t => (
+            {[{ v: "customer", l: "🙋 Khách hàng" }, { v: "owner", l: "🛠 Owner" },{ v: "admin", l: "🛠 Admin" }].map(t => (
               <button key={t.v} onClick={() => setForm({ ...form, role: t.v })}
                 style={{ ...S.tab, ...(form.role === t.v ? S.tabActive : {}) }}>
                 {t.l}

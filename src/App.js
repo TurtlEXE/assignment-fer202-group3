@@ -6,6 +6,8 @@ import Home from "./Customer/Home";
 import CourtDetail from "./Customer/CourtDetail";
 import Booking from "./Customer/Booking";
 import CourtList from "./Owner/CourtList";
+import ComplexList from "./Owner/ComplexList";
+import PriceConfig from "./Owner/PriceConfig";
 import Report from "./Owner/Report";
 import Payment from "./Customer/Payment";
 import GlobalContextProvider from "./GlobalContextProvider";
@@ -17,6 +19,18 @@ import AdminComplexes from "./Admin/AdminComplexes";
 import AdminDiscount from "./Admin/AdminDiscount";
 import AdminNotify from "./Admin/AdminNotify";
 
+import ComplexSchedule from "./Owner/ComplexSchedule";
+// import AdminLayout from "./Admin/AdminLayout";
+// import AdminStats from "./Admin/AdminStats";
+// import AdminComplexes from "./Admin/AdminComplexes";
+// import AdminDiscount from "./Admin/AdminDiscount";
+// import AdminNotify from "./Admin/AdminNotify";
+
+import ListComplexes from './User/ListComplexes'
+import ListCourt from './User/ListCourt'
+import SlotPicker from './User/SlotPicker'
+import PriceSummary from './User/PriceSummary'
+import BookingConfirm from './User/BookingConfirm'
 const ProtectedRoute = ({ children, allowedRoles }) => {
     const token = localStorage.getItem("pb_token");
     const user = JSON.parse(localStorage.getItem("pb_user") || "{}");
@@ -36,8 +50,12 @@ function App() {
                     <Route path="/court/:id" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><CourtDetail /></ProtectedRoute>} />
                     <Route path="/booking/:id" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><Booking /></ProtectedRoute>} />
                     <Route path="/dashboard" element={<ProtectedRoute allowedRoles={["owner", "admin"]}><OwnerLayout /></ProtectedRoute>}>
-                        <Route index element={<Navigate to="/dashboard/courts" replace />} />
-                        <Route path="courts" element={<CourtList />} />
+                        <Route index element={<Navigate to="/dashboard/complexes" replace />} />
+                        <Route path="courts" element={<Navigate to="/dashboard/complexes" replace />} />
+                        <Route path="complexes" element={<ComplexList />} />
+                        <Route path="complex/:complexId/courts" element={<CourtList />} />
+                        <Route path="complex/:complexId/pricing" element={<PriceConfig />} />
+                        <Route path="schedule" element={<ComplexSchedule />} />
                         <Route path="report" element={<Report />} />
                     </Route>
                     <Route path="/admin" element={<ProtectedRoute allowedRoles={["admin"]}><AdminLayout /></ProtectedRoute>}>
@@ -56,7 +74,48 @@ function App() {
                             </ProtectedRoute>
                         }
                     />
-                    <Route path="/test" element={<OwnerReport/>}/>
+                    <Route path="/test" element={<OwnerReport />} />
+
+                    <Route
+                        path="/complexes"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <ListComplexes />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/complex/:complexId/courts"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <ListCourt />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/complex/:complexId/courts/:courtId/slots"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <SlotPicker />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/booking/summary"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <PriceSummary />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/booking/confirm"
+                        element={
+                            <ProtectedRoute allowedRoles={["customer", "admin"]}>
+                                <BookingConfirm />
+                            </ProtectedRoute>
+                        }
+                    />
                 </Routes>
             </BrowserRouter>
         </GlobalContextProvider>

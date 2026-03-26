@@ -1,0 +1,103 @@
+:root {
+  --bg-page: #080c17;
+  --bg-surface: #101624;
+  --bg-surface-2: #141826;
+  --bg-overlay: rgba(0, 0, 0, 0.7);
+  --panel-bg: rgba(255, 255, 255, 0.03);
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --line-soft: rgba(255, 255, 255, 0.08);
+  --line-subtle: rgba(255, 255, 255, 0.05);
+
+  --text-primary: #f7f9ff;
+  --text-secondary: rgba(247, 249, 255, 0.85);
+  --text-muted: rgba(247, 249, 255, 0.65);
+  --text-subtle: rgba(247, 249, 255, 0.5);
+
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --input-option-bg: #1e2538;
+  --input-border: rgba(255, 255, 255, 0.18);
+  --input-text: #f7f9ff;
+
+  --btn-ghost-bg: rgba(255, 255, 255, 0.08);
+  --btn-ghost-border: rgba(255, 255, 255, 0.2);
+  --btn-ghost-text: rgba(247, 249, 255, 0.9);
+
+  --slot-empty-bg: #ffffff;
+  --slot-booked-bg: #ff5d5d;
+  --slot-grid-border: #8492b6;
+}
+
+[data-theme="light"] {
+  --bg-page: #eef3ff;
+  --bg-surface: #ffffff;
+  --bg-surface-2: #f7faff;
+  --bg-overlay: rgba(15, 23, 42, 0.35);
+  --panel-bg: rgba(255, 255, 255, 0.88);
+  --panel-border: rgba(15, 23, 42, 0.14);
+  --line-soft: rgba(15, 23, 42, 0.2);
+  --line-subtle: rgba(15, 23, 42, 0.12);
+
+  --text-primary: #111827;
+  --text-secondary: #1f2937;
+  --text-muted: #4b5563;
+  --text-subtle: #6b7280;
+
+  --input-bg: #ffffff;
+  --input-option-bg: #ffffff;
+  --input-border: rgba(15, 23, 42, 0.25);
+  --input-text: #111827;
+
+  --btn-ghost-bg: #ffffff;
+  --btn-ghost-border: rgba(15, 23, 42, 0.25);
+  --btn-ghost-text: #1f2937;
+
+  --slot-empty-bg: #ffffff;
+  --slot-booked-bg: #ef4444;
+  --slot-grid-border: #9aa6be;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.owner-theme input,
+.owner-theme textarea,
+.owner-theme select {
+  color: var(--input-text);
+  background: var(--input-bg);
+  border-color: var(--input-border);
+}
+
+.owner-theme select option {
+  color: var(--input-text);
+  background: var(--input-option-bg);
+}
+
+.owner-theme .ui-lift {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.owner-theme .ui-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  filter: saturate(1.06);
+}
+
+.owner-theme .ui-lift:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.14);
+}
+
+[data-theme="light"] .owner-theme .ui-lift:hover {
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+}
+
+.owner-theme .ui-row-hover {
+  transition: background 0.18s ease;
+}
+
+.owner-theme .ui-row-hover:hover {
+  background: rgba(56, 189, 248, 0.08);
+}
