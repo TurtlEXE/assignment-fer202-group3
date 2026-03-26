@@ -100,7 +100,7 @@ function DetailModal({
                                             </div>
                                         )}
                                         <Card.Body className="py-2 px-3">
-                                            <div style={{ fontWeight: 600, marginBottom: 4 }}>🏓 {court.name}</div>
+                                            <div style={{ fontWeight: 600, marginBottom: 4 }}> {court.name}</div>
                                             <div style={{ color: "#6c757d" }}>
                                                 Loại: {COURT_TYPE_LABEL[court.courtType] || court.courtType || "—"}
                                             </div>
