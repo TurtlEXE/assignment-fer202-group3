@@ -6,11 +6,14 @@ import Home from "./Customer/Home";
 import CourtDetail from "./Customer/CourtDetail";
 import Booking from "./Customer/Booking";
 import CourtList from "./Owner/CourtList";
-import Report from "./Owner/Report";
 import Payment from "./Customer/Payment";
 import GlobalContextProvider from "./GlobalContextProvider";
 import OwnerLayout from "./Owner/OwnerLayout";
 import OwnerReport from "./Owner/OwnerReport";
+import ComplexRegistration from "./Owner/ComplexRegistration";
+import AdminReport from "./Admin/AdminReport";
+import AdminRegistration from "./Admin/AdminRegistration";
+import AdminLayout from "./Admin/AdminLayout";
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
     const token = localStorage.getItem("pb_token");
@@ -25,7 +28,7 @@ function App() {
         <GlobalContextProvider>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/login" index element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><Home /></ProtectedRoute>} />
                     <Route path="/court/:id" element={<ProtectedRoute allowedRoles={["customer", "admin"]}><CourtDetail /></ProtectedRoute>} />
@@ -33,7 +36,13 @@ function App() {
                     <Route path="/dashboard" element={<ProtectedRoute allowedRoles={["owner", "admin"]}><OwnerLayout /></ProtectedRoute>}>
                         <Route index element={<Navigate to="/dashboard/courts" replace />} />
                         <Route path="courts" element={<CourtList />} />
-                        <Route path="report" element={<Report />} />
+                        <Route path="report" element={<OwnerReport />} />
+                        <Route path="complexregister" element={<ComplexRegistration/>}/>
+                    </Route>
+                     <Route path="/admindashboard" element={<ProtectedRoute allowedRoles={[ "admin"]}><AdminLayout/></ProtectedRoute>}>
+                        <Route index element={<Navigate to="/admindashboard/adminreport" replace />} />
+                        <Route path="adminreport" element={<AdminReport />} />
+                        <Route path="adminregistration" element={<AdminRegistration/>}/>
                     </Route>
                     <Route path="*" element={<Navigate to="/" replace />} />
                     <Route

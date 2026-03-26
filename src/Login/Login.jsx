@@ -1,27 +1,9 @@
-// src/login/Login.jsx — FULL CODE (copy toàn bộ vào project)
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { globalContext } from "../GlobalContextProvider";
 
-
-// const MOCK_ACCOUNTS = [
-//   // ── CUSTOMER ──
-//   { id: "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890", email: "customer1@gmail.com", password: "123456", role: "customer", fullName: "Trần Văn Khách", phone: "0901234567", avatarUrl: null },
-//   { id: "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2891", email: "customer2@gmail.com", password: "123456", role: "customer", fullName: "Nguyễn Thị Lan", phone: "0912345678", avatarUrl: null },
-//   { id: "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2892", email: "user@picklezone.vn", password: "user123", role: "customer", fullName: "Lê Hoàng Nam", phone: "0923456789", avatarUrl: null },
-
-//   // ── OWNER ──
-//   { id: "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2893", email: "owner1@picklezone.vn", password: "owner123", role: "owner", fullName: "Phạm Văn Chủ Sân", phone: "0934567890", avatarUrl: null },
-//   { id: "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2894", email: "owner2@picklezone.vn", password: "owner123", role: "owner", fullName: "Trần Thị Quản Lý", phone: "0945678901", avatarUrl: null },
-
-//   // ── ADMIN ──
-//   { id: "9ed8d1d1-ae9d-43fd-a9bc-2e4ecd8a2890", email: "admin@picklepro.vn", password: "admin123", role: "admin", fullName: "Nguyễn Văn Admin", phone: "0901000001", avatarUrl: null },
-// ];
-
-
 const Login = () => {
-  const { users } = useContext(globalContext);
-
+  const { users, setCurrentUser } = useContext(globalContext);
 
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "", role: "customer" });
@@ -44,7 +26,6 @@ const Login = () => {
     setLoading(true);
 
     setTimeout(() => {
-      // Tìm tài khoản khớp email + password + role
       const matched = users.find(
         (acc) =>
           acc.email === form.email.trim().toLowerCase() &&
@@ -54,7 +35,6 @@ const Login = () => {
 
       if (!matched) {
         setLoading(false);
-        // Phân biệt lỗi rõ ràng hơn
         const emailExists = users.find(
           (acc) => acc.email === form.email.trim().toLowerCase()
         );
@@ -66,32 +46,32 @@ const Login = () => {
         return;
       }
 
-      // Đăng nhập thành công
+      // Build user object
       const userData = {
-        id: matched.id,
-        name: matched.name,
-        email: matched.email,
-        phone: matched.phone,
-        role: matched.role,
-        avatar: matched.avatar,
+        id:        matched.id,
+        fullName:  matched.fullName,
+        email:     matched.email,
+        phone:     matched.phone,
+        role:      matched.role,
+        avatarUrl: matched.avatarUrl,
+        status:    matched.status,
       };
 
+      // Set vào global context
+      setCurrentUser(userData);
+
+      // Lưu vào localStorage để giữ session khi reload
       localStorage.setItem("pb_token", `mock_token_${matched.id}_${Date.now()}`);
-      localStorage.setItem("pb_user", JSON.stringify({
-        id: matched.id,
-        fullName: matched.fullName,
-        email: matched.email,
-        phone: matched.phone,
-        role: matched.role,
-        avatarUrl: matched.avatarUrl,
-      }));
+      localStorage.setItem("pb_user", JSON.stringify(userData));
 
       setLoading(false);
-      
-      if (matched.role === "owner" || matched.role === "admin") {
+
+      if (matched.role === "owner") {
         navigate("/dashboard");
+      } else if (matched.role === "admin") {
+        navigate("/admindashboard");
       } else {
-navigate("/");
+        navigate("/");
       }
     }, 1000);
   };
@@ -138,7 +118,7 @@ navigate("/");
           <h2 style={S.cardH}>Chào mừng trở lại 👋</h2>
           <p style={S.cardSub}>Đăng nhập để tiếp tục</p>
           <div style={S.tabs}>
-            {[{ v: "customer", l: "🙋 Khách hàng" }, { v: "owner", l: "🛠 Owner" }].map(t => (
+            {[{ v: "customer", l: "🙋 Khách hàng" }, { v: "owner", l: "🛠 Owner" }, { v: "admin", l: "👑 Admin" }].map(t => (
               <button key={t.v} onClick={() => setForm({ ...form, role: t.v })}
                 style={{ ...S.tab, ...(form.role === t.v ? S.tabActive : {}) }}>
                 {t.l}

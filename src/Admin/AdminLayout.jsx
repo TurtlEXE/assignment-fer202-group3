@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Outlet, useNavigate, useLocation, Link } from "react-router-dom";
 
 const NAV_ITEMS = [
-  { path: "/dashboard/courts", icon: "", label: "Quản lý sân", badge: null },
-  { path: "/dashboard/report", icon: "", label: "Báo cáo & Thống kê", badge: null },
-  { path: "/dashboard/bookings", icon: "", label: "Lịch đặt sân", badge: null },
-  { path: "/dashboard/complexregister", icon: "", label: "Các khu", badge: null }
+  { path: "/admindashboard/courts", icon: "🏸", label: "Quản lý sân", badge: null },
+  { path: "/admindashboard/adminreport", icon: "📊", label: "Báo cáo & Thống kê", badge: "Mới" },
+  { path: "/admindashboard/bookings", icon: "📅", label: "Lịch đặt sân", badge: 12 },
+  { path: "/admindashboard/adminregistration", icon: "", label: "Đơn đăng ký khu", badge: null }
 ];
 
 const NOTIFICATIONS = [
@@ -15,7 +15,7 @@ const NOTIFICATIONS = [
   { id: 4, msg: "Doanh thu hôm nay đạt 4.2 triệu đồng", time: "3 giờ trước", read: true },
 ];
 
-export default function OwnerLayout() {
+export default function AdminLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const user = JSON.parse(localStorage.getItem("pb_user") || "{}");
@@ -105,8 +105,29 @@ export default function OwnerLayout() {
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-           
-
+          
+            {/* Notification bell */}
+            <div style={{ position: "relative" }}>
+              <button onClick={() => setShowNotif(!showNotif)} style={S.notifBtn}>
+                🔔
+                {unread > 0 && <span style={S.notifBadge}>{unread}</span>}
+              </button>
+              {showNotif && (
+                <div style={S.notifDropdown}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                    <span style={{ fontWeight: 700, fontSize: 14 }}>Thông báo</span>
+                    <button onClick={markAllRead} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 12, color: "#00c864" }}>Đọc tất cả</button>
+                  </div>
+                  {notifs.map(n => (
+                    <div key={n.id} onClick={() => markRead(n.id)}
+                      style={{ ...S.notifItem, ...(!n.read ? S.notifUnread : {}) }}>
+                      <div style={{ fontSize: 13, color: "rgba(255,255,255,0.85)", lineHeight: 1.4, marginBottom: 4 }}>{n.msg}</div>
+                      <div style={{ fontSize: 11, color: "rgba(255,255,255,0.35)" }}>{n.time}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <button onClick={handleLogout} style={S.logoutBtn}>Đăng xuất</button>
           </div>
