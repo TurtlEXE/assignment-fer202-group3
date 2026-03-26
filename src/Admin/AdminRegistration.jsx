@@ -9,13 +9,13 @@ import { globalContext } from "../GlobalContextProvider";
 const BASE = "http://localhost:9999";
 
 const STATUS_MAP = {
-    submitted: { bg: "warning",   text: "dark",  label: "Chờ duyệt" },
-    approved:  { bg: "success",   text: "white", label: "Đã duyệt"  },
-    rejected:  { bg: "danger",    text: "white", label: "Từ chối"   },
-    draft:     { bg: "secondary", text: "white", label: "Bản nháp"  },
+    submitted: { bg: "warning", text: "dark", label: "Chờ duyệt" },
+    approved: { bg: "success", text: "white", label: "Đã duyệt" },
+    rejected: { bg: "danger", text: "white", label: "Từ chối" },
+    draft: { bg: "secondary", text: "white", label: "Bản nháp" },
 };
 
-const SLOT_LABEL       = { "30min": "30 phút", "60min": "1 tiếng", "120min": "2 tiếng" };
+const SLOT_LABEL = { "30min": "30 phút", "60min": "1 tiếng", "120min": "2 tiếng" };
 const COURT_TYPE_LABEL = { indoor: "Trong nhà", outdoor: "Ngoài trời" };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -40,11 +40,11 @@ function DetailModal({
 }) {
     if (!selectedForm) return null;
 
-    const owner     = getOwner(selectedForm.ownerId);
-    const complex   = getComplex(selectedForm.complexId);
-    const badge     = STATUS_MAP[selectedForm.status] || STATUS_MAP.draft;
+    const owner = getOwner(selectedForm.ownerId);
+    const complex = getComplex(selectedForm.complexId);
+    const badge = STATUS_MAP[selectedForm.status] || STATUS_MAP.draft;
     const isPending = selectedForm.status === "submitted";
-    const courts    = selectedForm.courts || [];
+    const courts = selectedForm.courts || [];
 
     return (
         <>
@@ -74,8 +74,10 @@ function DetailModal({
                     {/* Thông tin chủ sân */}
                     <SectionLabel title="Thông tin chủ sân" />
                     <Row className="g-2 mb-3">
-                        <Col md={6}><FieldLabel>Họ tên</FieldLabel><div>{owner?.fullName || "—"}</div></Col>
-                        <Col md={6}><FieldLabel>Email</FieldLabel><div>{owner?.email}</div></Col>
+                        <Col md={4}><FieldLabel>Họ tên</FieldLabel><div>{owner?.fullName || "—"}</div></Col>
+                        <Col md={4}><FieldLabel>Email</FieldLabel><div>{owner?.email}</div></Col>
+                        <Col md={4}><FieldLabel>SĐT</FieldLabel><div>{owner?.phone}</div></Col>
+                    
                     </Row>
 
                     <hr />
@@ -119,8 +121,8 @@ function DetailModal({
                     <Row className="g-2 mb-3">
                         {[
                             { label: "Giấy phép kinh doanh", url: selectedForm.businessLicenseUrl },
-                            { label: "CCCD mặt trước",       url: selectedForm.idCardFrontUrl    },
-                            { label: "CCCD mặt sau",         url: selectedForm.idCardBackUrl     },
+                            { label: "CCCD mặt trước", url: selectedForm.idCardFrontUrl },
+                            { label: "CCCD mặt sau", url: selectedForm.idCardBackUrl },
                         ].map(({ label, url }) => (
                             <Col md={4} key={label}>
                                 <FieldLabel>{label}</FieldLabel>
@@ -202,9 +204,9 @@ function DetailModal({
 
 // ── FormCard ──────────────────────────────────────────────────────────────────
 function FormCard({ form, getOwner, getComplex, onOpen }) {
-    const owner   = getOwner(form.ownerId);
+    const owner = getOwner(form.ownerId);
     const complex = getComplex(form.complexId);
-    const badge   = STATUS_MAP[form.status] || STATUS_MAP.draft;
+    const badge = STATUS_MAP[form.status] || STATUS_MAP.draft;
 
     return (
         <Card className="mb-3" style={{ border: "1px solid #dee2e6" }}>
@@ -250,26 +252,26 @@ export default function AdminRegistration() {
 
     const [selectedForm, setSelectedForm] = useState(null);
     const [reviewerNote, setReviewerNote] = useState("");
-    const [activeTab, setActiveTab]       = useState("submitted");
-    const [lightboxImg, setLightboxImg]   = useState(null);
+    const [activeTab, setActiveTab] = useState("submitted");
+    const [lightboxImg, setLightboxImg] = useState(null);
 
-    const getOwner   = id => users.find(u => u.id === id);
+    const getOwner = id => users.find(u => u.id === id);
     const getComplex = id => complexes.find(c => c.id === id);
 
     const countByStatus = status => registrationForms.filter(f => f.status === status).length;
     const formsByStatus = status => registrationForms.filter(f => f.status === status);
 
-    const openModal  = form => { setSelectedForm(form); setReviewerNote(form.reviewerNote || ""); };
-    const closeModal = ()   => { setSelectedForm(null); setReviewerNote(""); };
+    const openModal = form => { setSelectedForm(form); setReviewerNote(form.reviewerNote || ""); };
+    const closeModal = () => { setSelectedForm(null); setReviewerNote(""); };
 
     const handleDecision = async (decision) => {
         try {
             // 1. Cập nhật registrationForm
             const updatedForm = {
                 ...selectedForm,
-                status:       decision,
+                status: decision,
                 reviewerNote: reviewerNote.trim() || null,
-                reviewedAt:   new Date().toISOString(),
+                reviewedAt: new Date().toISOString(),
             };
             await axios.put(`${BASE}/registrationForms/${selectedForm.id}`, updatedForm);
             setRegistrationForms(prev => prev.map(f => f.id === selectedForm.id ? updatedForm : f));
@@ -279,7 +281,7 @@ export default function AdminRegistration() {
             if (complex) {
                 const updatedComplex = {
                     ...complex,
-                    status:     decision === "approved" ? "active" : "rejected",
+                    status: decision === "approved" ? "active" : "rejected",
                     approvedAt: decision === "approved" ? new Date().toISOString() : null,
                 };
                 await axios.put(`${BASE}/complexes/${complex.id}`, updatedComplex);
@@ -294,14 +296,14 @@ export default function AdminRegistration() {
                     const createdCourts = await Promise.all(
                         draftCourts.map(draft =>
                             axios.post(`${BASE}/courts`, {
-                                id:          crypto.randomUUID(),
-                                complexId:   selectedForm.complexId,
-                                name:        draft.name,
-                                courtType:   draft.courtType,
+                                id: crypto.randomUUID(),
+                                complexId: selectedForm.complexId,
+                                name: draft.name,
+                                courtType: draft.courtType,
                                 surfaceType: "",
-                                status:      "active",
+                                status: "active",
                                 description: draft.description || "",
-                                createdAt:   new Date().toISOString(),
+                                createdAt: new Date().toISOString(),
                             }).then(r => r.data)
                         )
                     );
@@ -322,8 +324,8 @@ export default function AdminRegistration() {
             <Row className="g-3 mb-4">
                 {[
                     { label: "Chờ duyệt", status: "submitted", color: "#ffc107", text: "#000" },
-                    { label: "Đã duyệt",  status: "approved",  color: "#198754", text: "#fff" },
-                    { label: "Từ chối",   status: "rejected",  color: "#dc3545", text: "#fff" },
+                    { label: "Đã duyệt", status: "approved", color: "#198754", text: "#fff" },
+                    { label: "Từ chối", status: "rejected", color: "#dc3545", text: "#fff" },
                 ].map(({ label, status, color, text }) => (
                     <Col md={3} key={status}>
                         <Card style={{ background: color, color: text, cursor: "pointer", border: "none" }}
