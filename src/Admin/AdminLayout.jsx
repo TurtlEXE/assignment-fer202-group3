@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Outlet, useNavigate, useLocation, Link } from "react-router-dom";
 
 const NAV_ITEMS = [
-  { path: "/admindashboard/courts", icon: "🏸", label: "Quản lý sân", badge: null },
-  { path: "/admindashboard/adminreport", icon: "📊", label: "Báo cáo & Thống kê", badge: "Mới" },
-  { path: "/admindashboard/bookings", icon: "📅", label: "Lịch đặt sân", badge: 12 },
-  { path: "/admindashboard/adminregistration", icon: "", label: "Đơn đăng ký khu", badge: null }
+  { path: "/admin/courts", icon: "🏸", label: "Quản lý sân", badge: null },
+  { path: "/admin/adminreport", icon: "📊", label: "Báo cáo & Thống kê", badge: "Mới" },
+  { path: "/admin/bookings", icon: "📅", label: "Lịch đặt sân", badge: 12 },
+  { path: "/admin/adminregistration", icon: "", label: "Đơn đăng ký khu", badge: null }
 ];
 
 const NOTIFICATIONS = [

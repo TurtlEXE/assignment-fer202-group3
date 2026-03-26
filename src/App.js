@@ -39,8 +39,8 @@ function App() {
                         <Route path="report" element={<OwnerReport />} />
                         <Route path="complexregister" element={<ComplexRegistration/>}/>
                     </Route>
-                     <Route path="/admindashboard" element={<ProtectedRoute allowedRoles={[ "admin"]}><AdminLayout/></ProtectedRoute>}>
-                        <Route index element={<Navigate to="/admindashboard/adminreport" replace />} />
+                     <Route path="/admin" element={<ProtectedRoute allowedRoles={[ "admin"]}><AdminLayout/></ProtectedRoute>}>
+                        <Route index element={<Navigate to="/admin/adminreport" replace />} />
                         <Route path="adminreport" element={<AdminReport />} />
                         <Route path="adminregistration" element={<AdminRegistration/>}/>
                     </Route>
